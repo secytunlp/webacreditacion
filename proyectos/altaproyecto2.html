@@ -1,0 +1,128 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+
+<script type="text/javascript" src="../js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript" src="../js/ckeditor/adapters/jquery.js"></script>	
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("altaproyecto2");
+});
+window.onload = function() {
+			
+			CKEDITOR.replace('ds_marco',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',
+				  filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+			
+			CKEDITOR.replace('ds_aporte',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_objetivos',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_metodologia',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_metas',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_antecedentes',{toolbar:'Basic_img',width:'780',height:'300',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',
+				  filebrowserWindowHeight : '500'});
+		
+			
+			
+	
+		}
+
+
+function validarArea(){
+	form = document.getElementById('altaproyecto2');
+	form.marcoTXT.value = CKEDITOR.instances.ds_marco.getData();
+	form.aporteTXT.value = CKEDITOR.instances.ds_aporte.getData();
+	form.objetivosTXT.value = CKEDITOR.instances.ds_objetivos.getData();
+	form.metodologiaTXT.value = CKEDITOR.instances.ds_metodologia.getData();
+	form.metasTXT.value = CKEDITOR.instances.ds_metas.getData();
+	form.antecedentesTXT.value = CKEDITOR.instances.ds_antecedentes.getData();
+	
+	
+	
+	
+}	
+
+</script>
+
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='altaproyecto2' id='altaproyecto2' action='altaproyecto2-action.php' class="fValidator-form niceform form_solicitudes" method='post' >
+				
+					
+					
+					  
+						<p><strong>Marco te&oacute;rico o estado actual del tema   (*):</strong><br />
+ 
+					      <strong></strong>
+					      
+					      <textarea name="ds_marco" id="ds_marco" cols="60" rows="4">{ds_marco}</textarea>
+			      <input type="hidden" name="marcoTXT" id="marcoTXT" class="fValidate['required']"/></p>
+						  
+					<p><strong>Aporte original al tema(*):</strong> <br />
+
+				      <textarea name="ds_aporte" id="ds_aporte" cols="60" rows="4">{ds_aporte}</textarea>
+			      <input type="hidden" name="aporteTXT" id="aporteTXT" class="fValidate['required']"/></p>
+						  <p><strong>Objetivos(*):</strong> <br />
+
+					        <textarea name="ds_objetivos" id="ds_objetivos" cols="60" rows="4">{ds_objetivos}</textarea>
+		          <input type="hidden" name="objetivosTXT" id="objetivosTXT" class="fValidate['required']"/></p>
+							<p><strong>Metodolog&iacute;a(*):</strong> <br />
+
+                  <textarea name="ds_metodologia" id="ds_metodologia" cols="60" rows="4">{ds_metodologia}</textarea>
+                  <input type="hidden" name="metodologiaTXT" id="metodologiaTXT" class="fValidate['required']"/></p>
+							  <p><strong>Metas / Resultados esperados en el desarrollo del proyecto (*):</strong> <br />
+
+					            <textarea name="ds_metas" id="ds_metas" cols="60" rows="4">{ds_metas}</textarea>
+	              <input type="hidden" name="metasTXT" id="metasTXT" class="fValidate['required']"/></p>
+								<p><strong>Antecedentes(*):</strong><span class="Estilo1">Desarrollar seg&uacute;n los antecedentes de la Unidad Ejecutora sobre la tem&aacute;tica del proyecto propuesto restringido a los &uacute;ltimos 5 (cinco) a&ntilde;os. Especificar: publicaciones, presentaciones a congresos de la especialidad, convenios con otras instituciones, etc.</span>
+					              <textarea name="ds_antecedentes" id="ds_antecedentes" cols="60" rows="15">{ds_antecedentes}</textarea>
+	              <input type="hidden" name="antecedentesTXT" id="antecedentesTXT" class="fValidate['required']"/></p>
+					<p style="text-align:center">
+					<input type='submit' name='anterior' value='Anterior' onclick="volver(this.form, 'altaproyecto1.php')" class="buttonSubmit"/>
+					<input type='reset' name='cancelar' value='Cancelar' onclick="consultarSalida();" class="buttonSubmit"/>
+					
+					<input type='submit' name='siguiente' value='Siguiente' onclick="return validarArea();" class="buttonSubmit"/>
+					</p>
+					(*) Campos requeridos<br />	
+			      <span style="color:#A43B3B">IMPORTANTE: no se pueden usar llamadas o referencias al Pie de P&aacute;gina </span>
+				</form>		
+				
+			</div>
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,112 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+            	validarArea();
+            	$('#grid{year}{tipo}').keydown(function (e) {
+           		 var code = e.keyCode || e.which;
+           		
+           		   if (code == '9'){
+           			 
+           		 	return false;
+           		}
+           		});
+            	
+                var textBefore = '';
+                $('#grid{year}{tipo}').find('td input').hover(function() {
+                    textBefore = $(this).val();
+                                  
+                    $(this).focus();
+                }, function() {
+                    var $field = $(this),
+                        text = $field.val();
+                    
+                    $(this).blur();
+                    // Set back previous value if empty
+                    if (text.length <= 0) {
+                        $field.html(textBefore);
+                    } else if (textBefore !== text) {
+                        // Text has been changed make query
+                        var value = {
+                            'row': parseInt(getRowData($field)),
+                            'column': parseInt($field.closest('tr').children().find(':input').index(this)),
+                            'text': text
+                        };
+                        $.post('Ajax_financiamientoitem.php', value)
+                        .error(function() {
+                            $('#message')
+                                .html('Make sure you inserted correct data')
+                                .fadeOut(3000)
+                                .html('&nbsp');
+                            $field.val(textBefore);
+                        })
+                        .success(function() {
+                            $field.val(text);
+                            doGrid('{year}','{tipo}');
+                           
+                        });
+                    } else {
+                        $field.val(text);
+                    }
+ 
+                });
+                
+                
+ 
+                // Get the id number from row
+                function getRowData($td) {
+                    return $td.closest('tr').prop('class').match(/\d+/)[0];
+                }
+            });
+            
+        </script>
+        <title></title>
+    </head>
+    <body>
+    
+    <div id="grid{year}{tipo}">
+    
+    <table>
+        <thead>
+            <tr>
+                
+               
+                
+                <td>Concepto</td>
+                <td>Monto</td>
+                <td>Acciones</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BEGIN: row -->
+            <tr class="{DATOS.cd_financiamientoitem}">
+               
+                <td><input id="ds_concepto{DATOS.nu_year}{DATOS.cd_tipo}" type="text" value="{DATOS.ds_concepto}" class="text"/></td>
+                <td><input id="nu_monto{DATOS.nu_year}{DATOS.cd_tipo}"  type="text" value="{DATOS.nu_monto}" /></td>
+                
+               <td><a href="#" onclick="eliminar('{DATOS.cd_financiamientoitem}','{DATOS.nu_year}','{DATOS.cd_tipo}'); return false;"><img class="hrefImg" src="../img/del.jpg" title="Eliminar &Iacute;tem" /></a></td>
+                
+            </tr>
+        <!-- END: row -->
+         <tr>
+                
+               
+                
+                <td>Total</td>
+                <td>{nu_total}<div id="divTotal{year}{tipo}" class="fValidator-msg"></div></td>
+                 <td><input id="hTotal{year}{tipo}"  type="hidden" value="{nu_total}" /></td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+    
+	</div>
+    
+    </body>
+<!-- END: main -->

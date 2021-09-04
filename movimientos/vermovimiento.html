@@ -1,0 +1,53 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/prototype.js"></script>
+<script type="text/javascript" src="../js/effects.js"></script>
+<script type="text/javascript" src="../js/validation.js"></script>
+</head>
+<body class="">
+			
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			
+			<div class="divverusuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				<table class="tablaListado">
+					<tr>
+					  <td width="15%"><p><strong>Nombre y Apellido :</strong></p></td>
+						<td width="85%"><p>{ds_apynom}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong>Funci&oacute;n :</strong></p></td>
+						<td><p>{ds_funcion}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong>Movimiento :</strong></p></td>
+						<td><p>{ds_movimiento}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong> Fecha : </strong></p></td>
+						<td><p>{dt_fecha} </p></td> 
+					</tr>
+					<tr>
+						<td><p><strong> Consecuencias : </strong></p></td>
+						<td><p>{ds_consecuencia} </p></td> 
+					</tr>
+				</table>
+				<p><input type='button' class="buttonSubmit" name='volver' value='Volver' onclick="javascript:history.back(-1);"/>
+					
+						
+			</div>
+</body>
+</html>
+<!-- END: main -->

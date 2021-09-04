@@ -1,0 +1,66 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/moocheck.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("rechazar");
+});
+
+
+
+</script>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='rechazar' id='rechazar' class="fValidator-form" action='rechazar-action.php' method='post' onsubmit="soniguales('pass', 'pass2');">
+					<input type="hidden" name="cd_docente" id="cd_docente" value="{cd_docente}"/>
+					<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}"/>
+					<p>Proyecto : {ds_codigo}</p>
+					<p>Integrante: {ds_integrante}</p> 
+					<p>{dt_fecha}</p>
+					
+					<p>Motivos (*): </p>
+					<p>
+					  <textarea name="ds_consecuencia" cols="60" rows="10" class="fValidate['required']"></textarea> </p> 
+					
+					<p style="text-align:center">
+					<input type='submit' name='submit' value='Aceptar'/>
+					<input type='reset' name='cancelar' value='Cancelar' onclick="javascript:history.back(-1);"/>
+					</p>
+				</form>	
+				(*) Campos Requeridos	
+			</div>
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,146 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/moocheck.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("modificardisciplinas");
+});
+
+function borrarDisciplina(id){
+	cd_especialidad = document.getElementById('cd_especialidad');
+	li = document.getElementById('li_'+id);
+	cd_especialidad.value = cd_especialidad.value.replace(id,"");
+	cd_especialidad.value = cd_especialidad.value.replace(",,",",");
+	var padre = li.parentNode;
+	padre.removeChild(li);
+}
+
+function mostrarDisciplinas(){
+	var perfil = document.getElementById('perfil');
+	var disciplinas = document.getElementById('disciplinas');
+	
+	if(perfil.value=='10'){
+		disciplinas.style.display = "block";
+	}
+	else{
+		disciplinas.style.display = "none";
+		
+	}
+}
+
+</script>
+</head>
+<body class="" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo_modificar_usuario">{titulo}</p></div>
+ 				
+				<form name='modificardisciplinas' id='modificardisciplinas' class="fValidator-form niceForm form_modificar_usuario" action='modificardisciplinas-action.php' method='post' onsubmit="soniguales('pass', 'pass2');">
+					
+					<div id="disciplinas" style="display:block">
+					<label>Area:
+					   <input type='text' name='ds_disciplina' id='ds_disciplina' value='' style='width:200px' onchange='mayusculas(this)'/>
+                                                <input type='text' id='cd_disciplina' name='cd_disciplina' value='' style='font-size: 10px; width: 20px;display:none'/> 
+				  </label>
+					<label>Disciplinas:
+					   <input type='text' name='ds_especialidad' id='ds_especialidad' value='' style='width:200px' onchange='mayusculas(this)'/>
+                                                <input type='text' id='cd_especialidad' name='cd_especialidad' value='{cd_especialidad}' style='font-size: 10px; width: 20px;display:none'/> 
+				  </label>
+					<ul id="ul_especialidades">
+					<div id="especialidades">
+					{li_especialidades}
+					
+					</div>
+					</ul>
+				</div>
+				
+					<br/><br/>
+					<input type='submit' class="buttonSubmit" name='submit' value='Modificar'/>
+					<input type='reset' class="buttonSubmit" name='cancelar' value='Cancelar' onclick="javascript:history.back(-1);"/>
+				        <label>(*) Campos Requeridos</label>
+				</form>	
+			</div>
+			<script type="text/javascript">
+			
+
+			var options_xml = {
+                    script: function (input) { return "../proyectos/Ajax_listarDisciplinas.php?input="+input; },
+                    varname:"input",
+                    noresults:"No se encontraron resultados",
+                    callback: function (obj) { document.getElementById('cd_disciplina').value = obj.id;
+                       
+                       
+                    }};
+                var as_xml = new bsn.AutoSuggest('ds_disciplina', options_xml);                                                              
+																			
+			var options_xml = {
+                   script: function (input) { return "../proyectos/Ajax_listarEspecialidades.php?input="+input+"&cd_disciplina="+document.getElementById('cd_disciplina').value; },
+                   varname:"input",
+                   noresults:"No se encontraron resultados",
+                   callback: function (obj) { 
+                	  			var ok=0;
+                	   			if(document.getElementById('cd_especialidad').value){
+                	   				var array_especialidades = document.getElementById('cd_especialidad').value.split(',');
+                					
+                					
+	                					for(var i=0; i<array_especialidades.length; i++){
+	                						if(array_especialidades[i]==obj.id){
+	                							ok=1;
+	                							break;
+	                						}
+	                					}
+	                					if(ok==0){
+	                						document.getElementById('cd_especialidad').value +=','+obj.id;	
+	                					}
+                   					}
+				                   else
+				                	   document.getElementById('cd_especialidad').value = obj.id;
+				                   
+                	   			if(ok==0){  				
+               						
+                	  
+			                	var especialidades = document.getElementById('especialidades');
+			                	
+			                	
+			                	  especialidades.innerHTML += '<li id="li_'+obj.id+'">'+obj.value+'<a href="" onclick="javascript:borrarDisciplina('+obj.id+'); return false;"><img src=../img/del.jpg></a></li>';
+                	   			}
+			                	  document.getElementById('ds_especialidad').value ='';
+                   }};
+               var as_xml = new bsn.AutoSuggest('ds_especialidad', options_xml);
+
+			
+			</script>
+</body>
+</html>
+<!-- END: main -->

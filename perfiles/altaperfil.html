@@ -1,0 +1,62 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/moocheck.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("altaperfil");
+});
+</script>
+</head>
+<body class="" {msj}><div class="bar_in"></div>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->			
+			<div id="overlay" style="visibility:hidden"></div>
+<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo_modificar_usuario">{titulo}</p></div>
+ 					
+				<form name='altaperfil' id='altaperfil' class="fValidator-form" action='altaperfil-action.php' method='post'>
+					<label>Nombre de Perfil (*): <input type='text' name='ds_perfil' id='ds_perfil' size='40' class="fValidate['required']"  /></label>
+					<div class="demo">
+					<label style="margin-right:66%"> Funciones :</label>
+						<div align="justify" style="margin-left:40%;">
+							<!-- BEGIN: funciones -->
+								<p><label><input type="checkbox" name="funciones[]" value="{DATA.cd_funcion}"/> {DATA.ds_funcion}</label></p>
+							<!-- END: funciones -->
+						</div>
+					</div>
+					<p style="text-align:center">
+					<input type='submit' class="buttonSubmit" name='submit' value='Agregar'/>
+					<input type='reset' class="buttonSubmit" name='cancelar' value='Cancelar' onclick="javascript:history.back(-1);"/>
+					</p>
+                                        <label>(*) Campos requeridos</label>
+				</form>		
+			</div>
+</body>
+</html>
+<!-- END: main -->

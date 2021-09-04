@@ -1,0 +1,131 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+ <script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("asignarevaluador");
+});
+
+
+function buscarProfesional(){
+	var miAjax = new Ajax('Ajax_buscarProfesional.php',
+	{
+		method: 'get',
+		data:$('asignarevaluador'),
+		update:'ds_apynom'
+	});
+	miAjax.request();
+}
+</script>
+</head>
+<body class="" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></label>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divasignarevaluador">
+ 				<div align="justify"><p class="titulo_modificar_usuario">{titulo}</label></div>
+ 		
+ 	
+				<form name='asignarevaluador' id='asignarevaluador' action='asignarevaluador-action.php' class="fValidator-form niceForm form_alta_usuario" method='post'>
+					<div class="Opciones">Sugeridos</div>
+ 	<table class="tablaListado">
+	<tr>
+		<th>Evaluador</th>
+		
+		<th>Universidad</th>
+		<th>Disciplina</th>
+		<th>Categor&iacute;a</th>
+		
+		
+	</tr>
+	<!-- BEGIN: row -->
+	<tr>
+		<td>{DATOS.ds_evaluador}</td>
+		
+		<td>{DATOS.ds_universidad}</td>
+		<td>{DATOS.ds_disciplina}</td>
+		<td>{DATOS.ds_categoria}</td>
+		
+		
+	</tr>
+	<!-- END: row -->
+</table>
+					<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}" />
+					<input type="hidden" name="cd_facultad" id="cd_facultad" value="{cd_facultad}" />
+					{ds_evaluador1}
+					{ds_evaluador2}
+					{ds_evaluador3}
+					<br/>
+					<p>
+                      
+                     <input type='submit' class="buttonSubmit" name='submit' value='Asignar'/>
+					<input type='reset' class="buttonSubmit" name='cancelar' value='Cancelar' onclick="javascript:history.back(-1);"/>
+					</p>
+              </form>		
+				
+			</div>
+			<script type="text/javascript">
+	
+
+                                                                            var options_xml = {
+                                                                                script: function (input) {var cd_facultad = document.getElementById('cd_facultad'); 
+																				
+																				return "Ajax_listarEvaluadores.php?input="+input+"&interno=1&cd_facultad="+cd_facultad.value; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_evaluador1').value = obj.id;
+                                                                                    
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_evaluador1', options_xml);
+																			
+																			var options1_xml = {
+                                                                                script: function (input) { var cd_facultad = document.getElementById('cd_facultad'); 
+																				
+																				return "Ajax_listarEvaluadores.php?input="+input+"&interno=0&cd_facultad="+cd_facultad.value; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_evaluador2').value = obj.id;
+                                                                                    
+                                                                                }};
+                                                                            var as1_xml = new bsn.AutoSuggest('ds_evaluador2', options1_xml);
+																			
+																			var options_xml = {
+                                                                                script: function (input) {var cd_facultad = document.getElementById('cd_facultad'); 
+																				
+																				return "Ajax_listarEvaluadores.php?input="+input+"&interno=2&cd_facultad="+cd_facultad.value; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_evaluador3').value = obj.id;
+                                                                                    
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_evaluador3', options_xml);
+																			</script>
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,349 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript" src="../js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript" src="../js/ckeditor/adapters/jquery.js"></script>
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+var exValidatorA;
+window.addEvent("domready", function() {
+	exValidatorA = new fValidator("altaproyecto6");
+});
+
+function validarArea(){}
+</script>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3>Mensajes del sistema</h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='altaproyecto6' id='altaproyecto6' action='altaproyecto6-action.php?pagina=7' class="fValidator-form niceform form_solicitudes" method='post' enctype="multipart/form-data">
+				 <input type="hidden" name="nu_duracion" id="nu_duracion" value="{nu_duracion}" />
+					
+					<!-- <p><strong>C.V. Director(*):</strong> 
+				       <input type='file' name='ds_curriculum' id='ds_curriculum' size='32' value="{ds_curriculum}"/>
+					   <input type="hidden" name="ds_curriculumH" id="ds_curriculumH" value="{ds_curriculumH}" />
+					   <input type="hidden" name="ds_curriculumT" id="ds_curriculumT" value="{ds_curriculumT}" />
+					<div id='cv'>{cvcargado}</div></p>
+					
+					 <div id="unidad0">
+					<p><strong>Lugar de trabajo del Director(*):</strong> 
+					  <input type='text' id='nu_nivelunidad' name='nu_nivelunidad' value='{nu_nivelunidad}' style='font-size: 10px; width: 20px;display:none' />
+                                                <input type='text' name='ds_unidad' id='ds_unidad' value='{ds_unidad}' style='width:500px' onchange='mayusculas(this)' class="fValidate['required']"/>
+                                                <input type='text' id='cd_unidad' name='cd_unidad' value='{cd_unidad}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/>
+				  </p></div>
+				  
+				 <p><strong>Horas por semanas dedicadas al proyecto(*):</strong>
+	              <input type='text' name='nu_horasinv' id='nu_horasinv' size='10' maxlength="50" class="fValidate['integer','required']" value="{nu_horasinv}"/><div id="ded"></div><input type="hidden" name="cd_deddoc" id="cd_deddoc" value="{cd_deddoc}" /></p>-->
+					  
+						<p>Evaluadores que no deben ser convocados para analizar  el proyecto.</p> 
+						  <p><strong>1. Por  excusaci&oacute;n </strong>( investigadores que no deber&iacute;an evaluar el proyecto por haber colaborado  estrechamente, durante los &uacute;ltimos cinco a&ntilde;os, con los integrantes del mismo)</p>
+						  <p><strong>Excusado 1: </strong>
+			      <input type='text' name='ds_excusado1' id='ds_excusado1' style="width:300px" onchange='mayusculas(this)' value='{ds_excusado1}'/> <input type='text' id='cd_excusado1' name='cd_excusado1' value='{cd_excusado1}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Excusado 2: </strong>
+			      <input type='text' name='ds_excusado2' id='ds_excusado2' style="width:300px" onchange='mayusculas(this)' value='{ds_excusado2}'/> <input type='text' id='cd_excusado2' name='cd_excusado2' value='{cd_excusado2}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Excusado 3: </strong>
+			      <input type='text' name='ds_excusado3' id='ds_excusado3' style="width:300px" onchange='mayusculas(this)' value='{ds_excusado3}'/> <input type='text' id='cd_excusado3' name='cd_excusado3' value='{cd_excusado3}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Excusado 4: </strong>
+			      <input type='text' name='ds_excusado4' id='ds_excusado4' style="width:300px" onchange='mayusculas(this)' value='{ds_excusado4}'/> <input type='text' id='cd_excusado4' name='cd_excusado4' value='{cd_excusado4}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Excusado 5: </strong>
+			      <input type='text' name='ds_excusado5' id='ds_excusado5' style="width:300px" onchange='mayusculas(this)' value='{ds_excusado5}'/> <input type='text' id='cd_excusado5' name='cd_excusado5' value='{cd_excusado5}' style='font-size: 10px; width: 20px;display:none'/></p>
+						 
+				 
+				  <p><strong>2. Por  recusaci&oacute;n </strong>&nbsp;(investigadores que a criterio del titular  del proyecto no deben ser convocados como evaluadores)</p>
+				  <p><strong>Recusado 1: </strong>
+			      <input type='text' name='ds_recusado1' id='ds_recusado1' style="width:300px" onchange='mayusculas(this)' value='{ds_recusado1}'/> <input type='text' id='cd_recusado1' name='cd_recusado1' value='{cd_recusado1}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Recusado 2: </strong>
+			      <input type='text' name='ds_recusado2' id='ds_recusado2' style="width:300px" onchange='mayusculas(this)' value='{ds_recusado2}'/> <input type='text' id='cd_recusado2' name='cd_recusado2' value='{cd_recusado2}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Recusado 3: </strong>
+			      <input type='text' name='ds_recusado3' id='ds_recusado3' style="width:300px" onchange='mayusculas(this)' value='{ds_recusado3}'/> <input type='text' id='cd_recusado3' name='cd_recusado3' value='{cd_recusado3}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Recusado 4: </strong>
+			      <input type='text' name='ds_recusado4' id='ds_recusado4' style="width:300px" onchange='mayusculas(this)' value='{ds_recusado4}'/> <input type='text' id='cd_recusado4' name='cd_recusado4' value='{cd_recusado4}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Recusado 5: </strong>
+			      <input type='text' name='ds_recusado5' id='ds_recusado5' style="width:300px" onchange='mayusculas(this)' value='{ds_recusado5}'/> <input type='text' id='cd_recusado5' name='cd_recusado5' value='{cd_recusado5}' style='font-size: 10px; width: 20px;display:none'/></p>
+				   
+				  <p><strong>Evaluadores a quienes se sugiere convocar para  analizar el proyecto. </strong>(Listar&nbsp;  nombres y apellidos de investigadores externos a la UNLP)</p>
+				  <p><strong>Sugerido 1: </strong>
+			      <input type='text' name='ds_sugerido1' id='ds_sugerido1' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido1}'/> <input type='text' id='cd_sugerido1' name='cd_sugerido1' value='{cd_sugerido1}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/></p>
+				  <p><strong>Sugerido 2: </strong>
+			      <input type='text' name='ds_sugerido2' id='ds_sugerido2' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido2}'/> <input type='text' id='cd_sugerido2' name='cd_sugerido2' value='{cd_sugerido2}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/></p>
+				  <p><strong>Sugerido 3: </strong>
+			      <input type='text' name='ds_sugerido3' id='ds_sugerido3' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido3}'/> <input type='text' id='cd_sugerido3' name='cd_sugerido3' value='{cd_sugerido3}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 4: </strong>
+			      <input type='text' name='ds_sugerido4' id='ds_sugerido4' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido4}'/> <input type='text' id='cd_sugerido4' name='cd_sugerido4' value='{cd_sugerido4}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 5: </strong>
+			      <input type='text' name='ds_sugerido5' id='ds_sugerido5' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido5}'/> <input type='text' id='cd_sugerido5' name='cd_sugerido5' value='{cd_sugerido5}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 6: </strong>
+			      <input type='text' name='ds_sugerido6' id='ds_sugerido6' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido6}'/> <input type='text' id='cd_sugerido6' name='cd_sugerido6' value='{cd_sugerido6}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 7: </strong>
+			      <input type='text' name='ds_sugerido7' id='ds_sugerido7' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido7}'/> <input type='text' id='cd_sugerido7' name='cd_sugerido7' value='{cd_sugerido7}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 8: </strong>
+			      <input type='text' name='ds_sugerido8' id='ds_sugerido8' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido8}'/> <input type='text' id='cd_sugerido8' name='cd_sugerido8' value='{cd_sugerido8}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 9: </strong>
+			      <input type='text' name='ds_sugerido9' id='ds_sugerido9' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido9}'/> <input type='text' id='cd_sugerido9' name='cd_sugerido9' value='{cd_sugerido9}' style='font-size: 10px; width: 20px;display:none'/></p>
+				  <p><strong>Sugerido 10: </strong>
+			      <input type='text' name='ds_sugerido10' id='ds_sugerido10' style="width:300px" onchange='mayusculas(this)' value='{ds_sugerido10}'/> <input type='text' id='cd_sugerido10' name='cd_sugerido10' value='{cd_sugerido10}' style='font-size: 10px; width: 20px;display:none'/></p>
+					<p style="text-align:center">
+					<input type='submit' name='anterior' value='Anterior' onclick="volver(this.form, 'altaproyecto5.php')" class="buttonSubmit"/>
+					<input type='reset' name='cancelar' value='Cancelar' onclick="consultarSalida();" class="buttonSubmit"/>
+
+					<input type='submit' name='siguiente' value='Guardar' onclick="return validarArea();" class="buttonSubmit"/>
+					</p>
+					
+				</form>		
+				
+			</div>
+			 <script type="text/javascript">
+	
+
+                                                                            var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_excusado1').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_excusado1').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_excusado1', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_excusado2').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_excusado2').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_excusado2', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_excusado3').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_excusado3').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_excusado3', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_excusado4').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_excusado4').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_excusado4', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_excusado5').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_excusado5').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_excusado5', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_recusado1').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_recusado1').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_recusado1', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_recusado2').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_recusado2').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_recusado2', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_recusado3').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_recusado3').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_recusado3', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_recusado4').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_recusado4').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_recusado4', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_recusado5').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_recusado5').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_recusado5', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido1').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido1').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido1', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido2').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido2').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido2', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido3').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido3').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido3', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido4').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido4').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido4', options_xml);
+																			 var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido5').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido5').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido5', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido6').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido6').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido6', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido7').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido7').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido7', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido8').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido8').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido8', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido9').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido9').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido9', options_xml);
+																			var options_xml = {
+                                                                                script: function (input) { 
+																				document.getElementById('cd_sugerido10').value = '';
+																				return "Ajax_listarEvaluadores.php?input="+input+"&externos=1"; },
+                                                                                varname:"input",
+                                                                                noresults:"No se encontraron resultados",
+                                                                                callback: function (obj) { document.getElementById('cd_sugerido10').value = obj.id;
+                                                                                    
+                                                                                   
+                                                                                }};
+                                                                            var as_xml = new bsn.AutoSuggest('ds_sugerido10', options_xml);
+																			</script>
+</body>
+</html>
+<!-- END: main -->

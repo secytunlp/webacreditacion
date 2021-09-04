@@ -1,0 +1,314 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<style>
+<!--
+
+
+
+ /* Font Definitions */
+
+@font-face
+	{font-family:"Arial Black";
+	panose-1:2 11 10 4 2 1 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ 
+
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:125%;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;
+	font-weight:bold;}
+
+
+
+
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+
+#contenedor {margin-left:-40px;
+	
+}
+
+-->
+</style>
+</head>
+<body>
+
+<div class=Section1>
+<p class=MsoBodyText style='text-align:justify;line-height:normal'>SOLICITUD DE ACREDITACION&nbsp; DE PROYECTOS DE INVESTIGACION&nbsp; Y/O DESARROLLO PARA EL A&Ntilde;O {nu_year} - PROGRAMA DE INCENTIVOS </p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>1. IDENTIFICACION DEL PROYECTO</strong> </p>
+
+
+
+  <p><strong>1.1 DIRECTOR:</strong> <br />
+    Apellido y Nombres: {ds_director} <br />
+    Categor&iacute;a de Docente Investigador:&nbsp;{ds_catdir}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+    Cargo docente: {ds_cargodir} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dedicaci&oacute;n: {ds_deddir} <br />
+    Unidad Acad&eacute;mica: {ds_facultaddir} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Universidad: {ds_universidaddir} <br />
+    Cargo en la Carrera del Investigador  (CIC - CONICET): {ds_carrerainvdir}-{ds_organismodir}<br />
+    Lugar de trabajo {ds_unidaddir} <br />
+    C.U.I.L.: {nu_cuildir} &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&iacute;tulos: {ds_titulodir} <br />
+    Domicilio Part. : {ds_calledir}&nbsp;{nu_nrodir}&nbsp;{nu_pisodir}&nbsp;{ds_deptodir}  Tel.: {nu_telefonodir}<br />
+    Localidad: {ds_localidaddir}&nbsp;&nbsp;&nbsp;Pcia.:{ds_provinciadir}&nbsp;&nbsp;&nbsp; C.P.: {nu_cpdir}<br />
+    Email:  {ds_maildir}</p>
+  <p>&nbsp;</p>
+  <p><strong>CODIRECTOR:</strong> <br />
+    Apellido y Nombres: {ds_codirector}  <br />
+    Categor&iacute;a de Docente  Investigador: {ds_catcodir}<br />
+  Cargo docente: {ds_cargocodir} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dedicaci&oacute;n: {ds_dedcodir} <br />
+    Unidad Acad&eacute;mica: {ds_facultadcodir} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Universidad: {ds_universidadcodir} <br />
+    Cargo en la Carrera del Investigador  (CIC - CONICET): {ds_carrerainvcodir}-{ds_organismocodir}<br />
+   C.U.I.L.: {nu_cuilcodir} &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&iacute;tulos: {ds_titulocodir} <br />
+    Lugar de trabajo {ds_unidadcodir} <br />
+    Domicilio Part. : {ds_callecodir}&nbsp;{nu_nrocodir}&nbsp;{nu_pisocodir}&nbsp;{ds_deptocodir}  Tel.: {nu_telefonocodir}<br />
+    Localidad: {ds_localidadcodir}&nbsp;&nbsp;&nbsp;Pcia:{ds_provinciacodir}&nbsp;&nbsp;&nbsp; C.P.: {nu_cpcodir}<br />
+    Email:  {ds_mailcodir}</p>
+	 <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>1.2 UNI</strong><strong>DAD ACADEMICA:</strong> {ds_facultad} <br />
+    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UNIDAD/ES  EJECUTORA/S:</strong> {ds_unidad} </p>
+  <p>Direcci&oacute;n: <strong>{ds_direccionunidad}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>Tel/Fax: <strong>{nu_telefonounidad}</strong><br />
+    E-mail: <strong><a href="mailto:{ds_mailunidad}">{ds_mailunidad}</a> </strong></p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>1.3 DENOMINACION DEL PROYECTO:&nbsp;</strong>{ds_titulo}</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>1.4 RESUMEN TECNICO:</strong> (no m&aacute;s de 150 palabras)<strong><br />
+  </strong>{ds_abstract}<br />
+
+ <strong>1.5 PALABRAS CLAVES: {ds_clave1},  {ds_clave2}, {ds_clave3}, {ds_clave4}, {ds_clave5}, {ds_clave6}.</strong> <strong><br />
+ 1.6 DURACION DEL PROYECTO: </strong>&nbsp;&nbsp;&nbsp;{ds_duracion}&nbsp;&nbsp;&nbsp;<br />
+ <strong>1.7 CARACTERISTICAS:</strong> <br />
+Tipo de Investigaci&oacute;n:&nbsp;&nbsp;&nbsp;{ds_tipoinvestigacion}&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+C&oacute;digo Area:&nbsp;&nbsp;&nbsp; {ds_codigodisciplina} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &Aacute;rea: {ds_disciplina}<br />
+C&oacute;digo Disciplina:&nbsp;&nbsp;{ds_codigoespecialidad}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Disciplina:  {ds_especialidad}<br />
+C&oacute;digo Campo de Aplicaci&oacute;n: &nbsp;&nbsp;{ds_codigocampo}&nbsp;&nbsp;&nbsp;&nbsp; Campo de Aplicaci&oacute;n:&nbsp;&nbsp;{ds_campo}<br />
+L&iacute;nea de Investigaci&oacute;n: {ds_linea} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>1.8 TRANSFERENCIA DE RESULTADOS PREVISTA:&nbsp;&nbsp;{ds_transferenciaprevista}</strong>&nbsp;&nbsp;</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>2. DESCRIPCION DEL PROYECTO</strong><strong>:</strong> Desarrollar seg&uacute;n el esquema  siguiente:</p>
+  <p><strong>2.1 Denominaci&oacute;n:&nbsp;&nbsp; {ds_titulo}  </strong></p>
+  <p><strong>2.2 Marco te&oacute;rico o estado actual del  tema:</strong><br />
+  {ds_marco}</p>
+  <p><strong>2.3 Aporte original al tema:</strong><br />
+  {ds_aporte}</p>
+  <p><strong>2.4 Objetivos:</strong><br />
+  {ds_objetivos}</p>
+  <p><strong>2.5 Metodolog&iacute;a:</strong><br />
+  {ds_metodologia}</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+	<p><strong>3. ANTECEDENTES: </strong>Desarrollar seg&uacute;n los antecedentes de la Unidad Ejecutora  sobre la tem&aacute;tica del proyecto propuesto restringido a los &uacute;ltimos 5 (cinco)  a&ntilde;os. Especificar: publicaciones, presentaciones a congresos de la  especialidad, convenios con otras instituciones, etc.<br />
+	{ds_antecedentes}</p>
+    <hr size=2 width="100%" noshade color=black align=center>
+	<p><strong>4. APORTES POTENCIALES: </strong>Desarrollar seg&uacute;n el esquema  siguiente<strong>:</strong><strong><br />
+	4.1 Contribuci&oacute;n al avance del  conocimiento cient&iacute;fico y/o tecnol&oacute;gico y/o creativo.<br />
+	</strong>{ds_avance}<br />
+	<strong>4.2 Contribuci&oacute;n a la formaci&oacute;n de  recursos humanos.<br />
+	</strong>{ds_formacion}<br />
+	<strong>4.3 Transferencia prevista de los  resultados, aplicaciones o conocimientos derivados del proyecto (si  corresponde) <br />
+	</strong>{ds_transferencia}<br />
+</p>
+    <hr size=2 width="100%" noshade color=black align=center>
+	<p><strong>5. PLAN DE TRABAJO: </strong>Desarrollar, en un m&aacute;ximo de 4  (cuatro) carillas. Enumerar las tareas especificando su ubicaci&oacute;n temporal.  (Cronograma)<strong><br />
+	</strong>{ds_plan}</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>6. RECURSOS HUMANOS INTERVINIENTES:</strong> (Se considerar&aacute;n integrantes del  proyecto si&nbsp; presentan el informe  correspondiente seg&uacute;n la normativa, de lo contrario ser&aacute;n dados de baja  autom&aacute;ticamente)<br />
+Desarrollar seg&uacute;n el esquema  siguiente: <strong><br />
+	</strong><strong>6.1 DIRECTOR&nbsp; </strong><br />
+-  Apellido y Nombres: <strong>{ds_director}</strong><br />
+-  Cargo/s. {ds_cargodir} <br />
+-  Dedicaci&oacute;n/es {ds_deddir} <br />
+-  Facultad a la que pertenece&nbsp;  {ds_facultaddir}<br />
+-  Universidad. {ds_universidaddir} <br />
+-  Lugar de Trabajo. {ds_unidaddir} <br />
+- Categor&iacute;a docente -  investigador (I, II, III, IV, V)&nbsp; {ds_catdir}<br />
+-  Cargo en la Carrera  del Investigador (CIC - CONICET)&nbsp; {ds_carrerainvdir} &nbsp;-&nbsp;{ds_organismodir} <br />
+-  T&iacute;tulo. {ds_titulodir} <br />
+-  Dedicaci&oacute;n en este proyecto en horas por semana. (<em>Los miembros de proyectos con cargo de dedicaci&oacute;n exclusiva podr&aacute;n  aportar un m&aacute;ximo de 35 hs; con cargo de dedicaci&oacute;n semiexclusiva&nbsp; un m&aacute;ximo de 15 hs y con cargo de dedicaci&oacute;n  simple un m&aacute;ximo de&nbsp; 4 hs</em>). {nu_horasinvdir} <br />
+-  Participaci&oacute;n en proyectos: <em>El  Director/es y cada integrante deber&aacute; especificar todos los proyectos en los que  interviene (t&iacute;tulo y director) indicando claramente la participaci&oacute;n en horas  semanales en cada proyecto (incluyendo el proyecto en acreditaci&oacute;n).</em><br />
+<em>Los  miembros del proyecto con mayor dedicaci&oacute;n podr&aacute;n participar hasta en 2 (dos)  proyectos acreditados, y los miembros con dedicaci&oacute;n simple en un (1) proyecto</em>.</p>
+  
+  <table border="1" cellspacing="0" cellpadding="0" width="500">
+    <tr>
+    <th scope="col"><div align="center">C&oacute;digo</div></th>
+    <th scope="col"><div align="center">T&iacute;tulo</div></th>
+	 <th scope="col"><div align="center">Director</div></th>
+	  <th scope="col"><div align="center">Inicio</div></th>
+	   <th scope="col"><div align="center">Fin</div></th>
+	   <th scope="col"><div align="center">Horas</div></th>
+  </tr>		
+  <!-- BEGIN: rowdir -->
+	<tr>
+		<td>{DATOS.ds_codigo}</td>
+		<td><div align="left">{DATOS.ds_titulo}</div></td>
+		<td><div align="left">{DATOS.ds_director}</div></td>
+		<td>{DATOS.dt_ini}</td>
+		<td>{DATOS.dt_fin}</td>
+		<td>{DATOS.nu_horasinv}</td>
+	</tr>
+	<!-- END: rowdir -->
+  </table>
+ 
+  {ds_codirectoresquema} <br />
+  {ds_formadosesquema}<br />
+  {ds_formacionesquema}<br />
+  {ds_becariosesquema}<br />
+  {ds_colaboladoresquema}	
+<hr size=2 width="100%" noshade color=black align=center>
+<p><strong>7. EQUIPAMIENTO Y/O BIBLIOGRAFIA:</strong> Desarrollar&nbsp; seg&uacute;n el esquema siguiente:<strong><br />
+7.1 Disponible:</strong> Enumerar. Otros datos que estime convenientes.<br />
+{ds_disponible}<br />
+  <strong>7.2 Necesario:</strong> Enumerar el equipamiento  indispensable&nbsp; para la realizaci&oacute;n del  proyecto que no se posee y costo aproximado.<br />
+{ds_necesario}<br />
+<strong>7.3 Fuentes de informaci&oacute;n disponible  y/o necesaria.</strong><br />
+{ds_fuentes}</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+<p><strong>8. PRESUPUESTO DEL PROYECTO </strong><strong><br />
+  8.1 Costo m&iacute;nimo global necesario  para llevar a cabo el proyecto </strong> <br />
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Primer a&ntilde;o: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${nu_ano1}.-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segundo  a&ntilde;o:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${nu_ano2}.-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tercer  a&ntilde;o:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${nu_ano3}.-<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuarto  a&ntilde;o:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${nu_ano4}.-
+</p>
+<p>
+	<strong>8.2  Fondos/Recursos disponibles</strong>
+<table border="1" cellspacing="0" cellpadding="0" width="500">
+    <tr>
+    <th scope="col"><div align="center">Monto</div></th>
+    <th scope="col"><div align="center">Fuente</div></th>
+	 <th scope="col"><div align="center">Resoluci&oacute;n</div></th>
+    </tr>		
+  <!-- BEGIN: rowdisp -->
+	<tr>
+		<td>{DATOS.nu_monto}</td>
+		<td>{DATOS.ds_fuente}</td>
+		<td>{DATOS.ds_resolucion}</td>
+	</tr>
+	<!-- END: rowdisp -->
+</table></p>
+<p>
+<strong>8.3  Fondos/Recursos en tr&aacute;mite</strong><br />
+{ds_fondotramite}
+<!--<table border="1" cellspacing="0" cellpadding="0" width="500">
+    <tr>
+      <th scope="col"><div align="center">Monto</div></th>
+      <th scope="col"><div align="center">Fuente</div></th>
+    </tr>		-->
+    <!-- BEGIN: rownece -->
+   <!-- <tr>
+      <td>{DATOS.nu_monto}</td>
+		  <td>{DATOS.ds_fuente}</td>
+    </tr>-->
+    <!-- END: rownece -->
+<!--</table>-->
+</p>
+<p><strong>8.4</strong> <strong>Explicitar la  factibilidad del plan de trabajo propuesto con los recursos disponibles, en  caso de no recibir financiamiento.</strong><br />
+{ds_factibilidad}</p>
+  <hr size=2 width="100%" noshade color=black align=center>
+  <p><strong>9.</strong><strong> PRESUPUESTO ESTIMADO PRELIMINAR (SUBSIDIO EROGACIONES CORRIENTES - UNLP)</strong> Los fondos que puedan asignarse al presente proyecto ser&aacute;n exclusivamente utilizados para su realizaci&oacute;n de acuerdo con los objetivos y el plan que constan en la presente solicitud. </p>
+  
+  <table border="1" cellspacing="0" cellpadding="0" width="500">
+  <tr>
+                      <th width="182" scope="col"><div align="center">Descripci&oacute;n / concepto </div></th>
+			          <th width="74" scope="col"><div align="center">Importe {nu_year1}</div></th>
+			         <th width="74" scope="col"><div align="center">Importe {nu_year2}</div></th>
+			         <th width="74" scope="col"><div align="center">Importe {nu_year3}</div></th>
+			          <th width="74" scope="col"><div align="center">Importe {nu_year4}</div></th>
+    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Servicios de consumo </strong></div></td>
+                      <td>{nu_consumo1}</td>
+                      <td>{nu_consumo2}</td>
+                      <td>{nu_consumo3}</td>
+                      <td>{nu_consumo4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Servicios no personales (vi&aacute;ticos, pasajes, etc.) </strong></div></td>
+                      <td>{nu_servicios1}</td>
+                      <td>{nu_servicios2}</td>
+                      <td>{nu_servicios3}</td>
+                      <td>{nu_servicios4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Equipamiento y bibliograf&iacute;a </strong></div></td>
+                     <td>{nu_bibliografia1}</td>
+                      <td>{nu_bibliografia2}</td>
+                      <td>{nu_bibliografia3}</td>
+                      <td>{nu_bibliografia4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Equipamiento cient&iacute;fico espec&iacute;ficos </strong></div></td>
+                     <td>{nu_cientifico1}</td>
+                      <td>{nu_cientifico2}</td>
+                      <td>{nu_cientifico3}</td>
+                      <td>{nu_cientifico4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Equipo de computaci&oacute;n </strong></div></td>
+                      <td>{nu_computacion1}</td>
+                      <td>{nu_computacion2}</td>
+                      <td>{nu_computacion3}</td>
+                      <td>{nu_computacion4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="left"><strong>Otros</strong></div></td>
+                     <td>{nu_otros1}</td>
+                      <td>{nu_otros2}</td>
+                      <td>{nu_otros3}</td>
+                      <td>{nu_otros4}</td>
+                    </tr>
+                    <tr>
+                      <td><div align="right"><strong>Total</strong></div></td>
+                      <td><div id="total1">{nu_total1}</div></td>
+                      <td><div id="total2">{nu_total2}</div></td>
+                      <td><div id="total3">{nu_total3}</div></td>
+                      <td><div id="total4">{nu_total4}</div></td>
+                    </tr>
+</table>
+</p> 
+  <hr size=2 width="100%" noshade color=black align=center>
+  La informaci&oacute;n que detallo en esta  solicitud es exacta y tiene car&aacute;cter de <strong>DELARACION JURADA</strong>
+  <br />
+  <p>&nbsp;</p>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>FECHA:&nbsp; <strong>__/__/____</strong></td>
+      <td>Firma del  Director del Proyecto</td>
+    </tr>
+  </table>
+  
+	<hr size=2 width="100%" noshade color=black align=center>
+	<p><strong>10. AVAL DE LA UNIDAD ACADEMICA: </strong>De ser acreditado  el presente proyecto se deja constancia que esta Unidad Acad&eacute;mica otorga su  conformidad para su realizaci&oacute;n en el &aacute;mbito de la misma.<strong></strong><br />
+  <p>&nbsp;</p>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>FECHA:&nbsp; <strong>__/__/____</strong></td>
+      <td>Firma y Sello</td>
+    </tr>
+  </table>
+
+   </div>
+</body>
+
+
+</html>
+<!-- END: main -->

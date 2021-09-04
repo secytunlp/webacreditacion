@@ -1,0 +1,127 @@
+div#toolbar-box {
+	background: #F7F7F7 none repeat scroll 0%;
+}
+
+div#element-box {
+	background: #FFFFFF none repeat scroll 0%;
+}
+
+div#element-box div.section-box div.m {
+	background: #FBFBFB none repeat scroll 0%;
+}
+
+div.t,div.b {
+	height: 6px;
+	margin: 0pt;
+	overflow: hidden;
+	padding: 0pt;
+}
+
+div.m {
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 0pt 8px;
+}
+
+div#toolbar-box div.m {
+	padding: 0pt;
+}
+
+div#element-box div.m {
+	padding: 5px 10px;
+}
+
+div#submenu-box div.t {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt;
+}
+
+div#submenu-box div.t div.t {
+	background: transparent url(../img/j_crn_tr_dark.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#submenu-box div.t div.t div.t {
+	background: transparent url(../img/j_crn_tl_dark.png) no-repeat scroll
+		0pt;
+}
+
+div#submenu-box div.b {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt
+		100%;
+}
+
+div#submenu-box div.b div.b {
+	background: transparent url(../img/j_crn_br_dark.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#submenu-box div.b div.b div.b {
+	background: transparent url(../img/j_crn_bl_dark.png) no-repeat scroll
+		0pt;
+}
+
+div#toolbar-box,div#element-box div.section-box {
+	background: #FBFBFB none repeat scroll 0%;
+}
+
+div#toolbar-box div.t,div#element-box div.section-box div.t {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt;
+}
+
+div#toolbar-box div.t div.t,div#element-box div.section-box div.t div.t
+	{
+	background: transparent url(../img/j_crn_tr_med.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#toolbar-box div.t div.t div.t,div#element-box div.section-box div.t div.t div.t
+	{
+	background: transparent url(../img/j_crn_tl_med.png) no-repeat scroll
+		0pt;
+}
+
+div#toolbar-box div.b,div#element-box div.section-box div.b {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt
+		100%;
+}
+
+div#toolbar-box div.b div.b,div#element-box div.section-box div.b div.b
+	{
+	background: transparent url(../img/j_crn_br_med.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#toolbar-box div.b div.b div.b,div#element-box div.section-box div.b div.b div.b
+	{
+	background: transparent url(../img/j_crn_bl_med.png) no-repeat scroll
+		0pt;
+}
+
+div#element-box div.t {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt;
+}
+
+div#element-box div.t div.t {
+	background: transparent url(../img/j_crn_tr_light.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#element-box div.t div.t div.t {
+	background: transparent url(../img/j_crn_tl_light.png) no-repeat scroll
+		0pt;
+}
+
+div#element-box div.b {
+	background: transparent url(../img/j_border.png) repeat-x scroll 0pt
+		100%;
+}
+
+div#element-box div.b div.b {
+	background: transparent url(../img/j_crn_br_light.png) no-repeat scroll
+		100% 0pt;
+}
+
+div#element-box div.b div.b div.b {
+	background: transparent url(../img/j_crn_bl_light.png) no-repeat scroll
+		0pt;
+}

@@ -1,0 +1,219 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+
+<script type="text/javascript" src="../js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript" src="../js/ckeditor/adapters/jquery.js"></script>	
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/DrasticTools/drasticGrid.js"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script src="../js/jquery/jquery-1.7.min.js"></script>
+
+
+<script type="text/javascript">
+function doGrid(item){
+	
+	
+	
+	
+	$.ajax({
+		 
+		  url: 'grillaCronograma.php?year='+item,
+		  
+		  success: function(content){
+				$( "#divGrid"+item ).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGrid"+item ).html("");
+				
+			  }
+		});
+
+}
+$(function() {
+{doGrillas}
+});
+//Get the id number from row
+function insertar(item) {
+$.ajax({
+	 
+	  url: 'grillaCronograma.php?insertar=1&year='+item,
+	  
+	  success: function(content){
+			$( "#divGrid"+item ).html(content);
+			
+	  },
+	  error: function(content){
+			$( "#divGrid"+item ).html("");
+			
+		  }
+	});
+}
+//Get the id number from row
+function eliminar(id, item) {
+	var preg=confirm("esta seguro/a?");
+	if (preg==true){
+		$.ajax({
+		 
+		  url: 'grillaCronograma.php?eliminar='+id+'&year='+item,
+		  
+		  success: function(content){
+				$( "#divGrid"+item).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGrid"+item).html("");
+				
+			  }
+		});
+	}
+}
+
+
+window.onload = function() {
+			
+			
+			
+			
+		
+		//CKEDITOR.replace('ds_cronograma',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});	
+		CKEDITOR.replace('ds_disponible',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_necesario',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});
+			CKEDITOR.replace('ds_fuentes',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});
+	
+		
+			
+		}
+
+
+function validarArea(){
+	
+	{divsRequeridos}
+	
+	$("#disponibleTXT").val(CKEDITOR.instances.ds_disponible.getData());
+	
+	if($("#disponibleTXT").val()==''){
+		$( "#divDisponible" ).html('Campo requerido');
+		
+		return false
+	}
+	else{
+		$( "#divDisponible" ).html('');
+		
+	}
+	
+	$("#necesarioTXT").val(CKEDITOR.instances.ds_necesario.getData());
+	
+	if($("#necesarioTXT").val()==''){
+		$( "#divNecesario" ).html('Campo requerido');
+		
+		return false
+	}
+	else{
+		$( "#divNecesario" ).html('');
+		
+	}
+	
+	$("#fuentesTXT").val(CKEDITOR.instances.ds_fuentes.getData());
+	
+	if($("#fuentesTXT").val()==''){
+		$( "#divFuentes" ).html('Campo requerido');
+		
+		return false
+	}
+	else{
+		$( "#divFuentes" ).html('');
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}	
+
+</script>
+
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='altaproyecto4' id='altaproyecto4' action='altaproyecto4-action.php' class="niceform form_solicitudes" method='post' >
+				
+					
+					
+					  
+				 
+				  <p><strong>Enumerar las tareas especificando su ubicaci&oacute;n temporal. (Cronograma)     (*):</strong> 
+						  
+						  <!--  <textarea name="ds_cronograma" id="ds_cronograma" cols="60" rows="4">{ds_cronograma}</textarea>
+				          <input type="hidden" name="cronogramaTXT" id="cronogramaTXT" class="fValidate['required']"/> -->
+				          <div id="grid" style="position: relative;">
+				          Nota: presione "Insertar actividad" para ingresar una nueva l&iacute;nea, inserte texto dentro del cuadro "Actividad" y elija con un "Click" los meses correspondientes<br>
+							{grillasCronograma}
+							
+						</div>
+				  </p>
+						<p><strong>Equipamiento y/o bibliograf&iacute;a disponibles     (*):</strong> <br />
+						  
+						  <textarea name="ds_disponible" id="ds_disponible" cols="60" rows="4">{ds_disponible}</textarea>
+				          <input type="hidden" name="disponibleTXT" id="disponibleTXT" class="fValidate['required']"/>
+				         
+				  </p>
+				   <div id="divDisponible" class="fValidator-msg"></div>
+						<p><strong>Equipamiento y/o bibliograf&iacute;a necesarios (*):</strong> <br />
+
+				      <textarea name="ds_necesario" id="ds_necesario" cols="60" rows="4">{ds_necesario}</textarea>
+			      <input type="hidden" name="necesarioTXT" id="necesarioTXT" class="fValidate['required']"/></p>
+					<div id="divNecesario" class="fValidator-msg"></div>	 
+								<p><strong>Fuentes de informaci&oacute;n disponibles y/o necesarias (*):</strong><br />
+
+								  <textarea name="ds_fuentes" id="ds_fuentes" cols="60" rows="4">{ds_fuentes}</textarea>
+	              <input type="hidden" name="fuentesTXT" id="fuentesTXT" class="fValidate['required']"/></p>
+					<div id="divFuentes" class="fValidator-msg"></div>
+					<p style="text-align:center">
+					<input type='submit' name='anterior' value='Anterior' onclick="volver(this.form, 'altaproyecto3.php')" class="buttonSubmit"/>
+					<input type='reset' name='cancelar' value='Cancelar' onclick="consultarSalida();" class="buttonSubmit"/>
+					
+					<input type='submit' name='siguiente' value='Siguiente' onclick="return validarArea();" class="buttonSubmit"/>
+					</p>
+						(*) Campos requeridos
+				        <br />
+				        <span style="color:#A43B3B">IMPORTANTE: no se pueden usar llamadas o referencias al Pie de P&aacute;gina </span>
+				</form>		
+				
+			</div>
+</body>
+</html>
+<!-- END: main -->

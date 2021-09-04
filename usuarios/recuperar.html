@@ -1,0 +1,63 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{titulo}</title>
+        <meta http-equiv="Content-Language" content="en" />
+        <meta name="GENERATOR" content="Co-Comp Ltd" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+        <link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="../js/funciones.js"></script>
+        <script type="text/javascript" src="../js/mootools.js"></script>
+        <script type="text/javascript" src="../js/fValidator.js"></script>
+        <script type="text/javascript">
+
+            window.addEvent("domready", function() {
+                var exValidatorA = new fValidator("recuperar");
+            });
+
+
+
+        </script>
+    </head>
+    <body class="" {msj}>
+          <div class="bar"></div>
+        <img alt="logo_cyt" class="logo_cyt center" src="../img/Logo_Cyt_1.png"/>
+        <div class="title center">Sistema<span>de</span>Acreditaci&oacute;n</div>
+		<div class="title-b center"><span>de</span>Proyectos</div>
+        <div id="logo_unlp"></div>
+        <!-- BEGIN:menu -->
+				{menu}
+        <!-- END:menu -->
+        <div id="overlay" style="visibility:hidden"></div>
+        <div id="lightbox" >
+            <div class="roundedcornr_top"><div></div></div>
+            <div class="roundedcornr_content">
+                <h3><span>Mensajes del sistema</span></h3>
+                <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+                    <!-- END: msj --></p>
+                <div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+                    </label> </div>
+            </div>
+            <div class="roundedcornr_bottom"><div></div></div>
+        </div>
+        <div class="divaltausuario">
+            <div class="msjerror center">{titulo}</div>
+
+            <form name='recuperar' id='recuperar' action='recuperar-action.php' class="fValidator-form niceform" method='post'>
+                <label align="center">C.U.I.L.(*)</label>
+                <input type='text' name='nu_precuil' id='nu_precuil' size='2' maxlength="2" class="fValidate['integer']"/>-<input type='text' name='nu_documento' id='nu_documento' size='23' maxlength="8" class="fValidate['integer']"/>-<input type='text' name='nu_postcuil' id='nu_postcuil' size='1' maxlength="1" class="fValidate['integer']"/>
+                <label align="center">E-Mail(*)</label>
+                <input type='text' name='mail' id='mail'  size='40' class="fValidate['required','email']" />
+                <p>
+                    <input type='submit' name='submit' class="buttonSubmit" value='Enviar'/>
+                    <input type='reset' name='cancelar' class="buttonSubmit" value='Cancelar' onclick="javascript:history.back(-1);"/>
+                </p>
+                <label>(*) Campos requeridos</label>
+            </form>
+        </div>
+    </body>
+</html>
+<!-- END: main -->

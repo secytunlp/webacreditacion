@@ -1,0 +1,216 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{titulo}</title>
+        <meta http-equiv="Content-Language" content="en" />
+        <meta name="GENERATOR" content="Co-Comp Ltd" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+        <link rel="stylesheet" href="../css/calendar.css" type="text/css" />
+        <script type="text/javascript" src="../js/funciones.js"></script>
+        <script type="text/javascript" src="../js/mootools.js"></script>
+     
+        <script type="text/javascript" src="../js/fValidator.js"></script>
+        <link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+      
+        <script type="text/javascript">
+            var exValidatorA;
+            window.addEvent("domready", function() {
+                exValidatorA = new fValidator("evaluarproyecto");
+            });
+			
+			
+			
+			function damePuntajeItem(cd_subgrupo){
+				cantidad = document.getElementById('nu_cantitem'+cd_subgrupo);
+				var total=0;
+				
+				control = document.getElementById('control');
+				for (var i=0; i<cantidad.value; i++){
+						
+				
+					nu_puntaje = document.getElementById('nu_puntaje'+cd_subgrupo+i);
+					
+					div = document.getElementById('divpuntaje'+cd_subgrupo+i);
+					
+					if (nu_puntaje != null){
+						
+						puntaje = (nu_puntaje.value!='')?parseFloat(nu_puntaje.value):0;
+						if((puntaje>10)){
+							div.innerHTML = 'Puntaje Excedido';
+							nu_puntaje.style.background = '#FFF4F4';
+							nu_puntaje.style.borderColor =  "#8E3B1B";
+							control.value=1;
+						}
+						else{
+							div.innerHTML = '';
+							nu_puntaje.style.background = '#FFFFFF';
+							nu_puntaje.style.borderColor = '#FFFFFF';
+							total = total + puntaje;
+							
+						}
+					
+				}
+				
+				
+			}
+			var divletra = document.getElementById('divletra'+cd_subgrupo);
+			var ds_letra = document.getElementById('ds_letra'+cd_subgrupo);
+			var promedio = parseInt(total/cantidad.value);
+			switch (promedio) {
+			case 0:
+			   letra='M';
+			   break
+			case 1:
+			   letra='M';
+			   break
+			case 2:
+			   letra='M';
+			   break
+			case 3:
+			   letra='M';
+			   break
+			case 4:
+			   letra='R';
+			   break
+			case 5:
+			   letra='R';
+			   break
+			case 6:
+			   letra='R';
+			   break
+			case 7:
+			   letra='B';
+			   break
+			case 8:
+			   letra='B';
+			   break
+			case 9:
+			   letra='B';
+			   break
+			case 10:
+			   letra='MB';
+			   break
+			
+		} 
+			divletra.innerHTML=letra;
+			ds_letra.value = letra;
+			}
+			
+			
+			
+			function sumarPuntaje(){
+				
+				for (var i=1; i<5; i++){
+					damePuntajeItem(i);
+				}
+				var divaprobado = document.getElementById('divaprobado');
+				var desaprobado = document.getElementById('desaprobado');
+				desaprobado.value=0;
+				var contR = 0;
+				for (var i=1; i<5; i++){
+					ds_letra = document.getElementById('ds_letra'+i);	
+					if(ds_letra.value == 'M'){
+						desaprobado.value=1;
+					}
+					else if(ds_letra.value == 'R'){
+						if(i == '2'){
+							desaprobado.value=1;
+						}
+						else contR++;
+					}
+				}
+				if(desaprobado.value==0){
+					if(contR >1){
+						desaprobado.value=1;
+					}
+				}
+				if(desaprobado.value==0){
+					divaprobado.innerHTML='APROBADO';
+				}
+				else divaprobado.innerHTML='NO APROBADO';
+				
+			}
+			
+			function validarEvaluacion(){
+				div = document.getElementById('divarea');
+				ds_observacion = document.getElementById('ds_observacion');
+				var desaprobado = document.getElementById('desaprobado');
+				
+				control = document.getElementById('control');
+				/*if((ds_observacion.value=='')&&(desaprobado.value==1)){
+					div.innerHTML = 'Como el resultado es NO APROBADO, se requiere un comentario breve (pero claro) de las razones que lo llevaron a tomar tal determinación';
+					ds_observacion.style.background = '#FFF4F4';
+					ds_observacion.style.borderColor =  "#8E3B1B";
+					control.value=1;
+				}
+				else{
+					div.innerHTML = '';
+					ds_observacion.style.background = '#FFFFFF';
+					ds_observacion.style.borderColor = '#FFFFFF';
+					control.value=0;
+					
+				}*/
+				
+				if(control.value==1) return false;
+				else return true;
+			}
+        </script>
+    </head>
+    <body class="bodyPlantilla" {msj}>
+          <!-- BEGIN:menu -->
+				{menu}
+          <!-- END:menu -->
+          <div id="overlay" style="visibility:hidden"></div>
+        <div id="lightbox" >
+            <div class="roundedcornr_top"><div></div></div>
+            <div class="roundedcornr_content">
+                <h3><span>Mensajes del sistema</span></h3>
+                <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+                    <!-- END: msj --></p>
+                <div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+                    </label> </div>
+            </div>
+            <div class="roundedcornr_bottom"><div></div></div>
+        </div>
+        <div class="divaltausuario">
+            <div align="justify"><p class="titulo">{titulo}</p></div>
+
+            <form name='evaluarproyecto' id='evaluarproyecto' action='evaluarproyecto-action.php' class="fValidator-form niceform form_solicitudes" method='post' >
+                <input type="hidden" name="cd_evaluacion" id="cd_evaluacion" value="{cd_evaluacion}" />
+				<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}" />
+				
+				<input type="hidden" name="control" id="control"/>
+
+                
+              <span id="datos">
+              <p>Denominaci&oacute;n del proyecto  :    {ds_titulo}</p>
+			  <p>Director del proyecto:    {ds_director}</p>
+					
+              <!-- BEGIN: subgrupo --> 
+				{DATOS.ds_evaluacionproyecto}      
+              <!-- END: subgrupo -->
+				
+
+                
+			<DIV id="divaprobado" align="center"></DIV>	
+              
+				<input type="hidden" name="desaprobado" id="desaprobado"/>
+			<p>Observaciones<br />
+                <textarea name="ds_observacion" id="ds_observacion" cols="150" rows="6">{ds_observacion}</textarea><div id="divarea" class="fValidator-msg" align="center"></div></p>
+              <p align="center">
+                      <input type='submit' name='submit' value='Guardar' class="buttonSubmit" onClick="return validarEvaluacion()"/>
+					  <input type='reset' name='cancelar' value='Cancelar' class="buttonSubmit" onclick="javascript:history.back(-1);" />
+              </p>
+              </span>
+					
+                
+            </form>
+
+                                                                        </div>
+                                                                       <script>sumarPuntaje()</script>
+                                                                        </body>
+                                                                        </html>
+                                                                        <!-- END: main -->

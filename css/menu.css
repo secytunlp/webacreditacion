@@ -1,0 +1,90 @@
+#chromemenu {
+	width: 100%;
+}
+
+#chromemenu :after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0pt;
+	visibility: hidden;
+}
+
+#chromemenu ul {
+	background: transparent url(../img/menu.jpg) repeat-x scroll center;
+	/*border: 1px solid #BBBBBB;*/
+	float: left;
+	font-family: Verdana;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	line-height: normal;
+	margin: 0px;
+	padding-left: 0pt;
+	width: 100%;
+	padding-bottom: 7px;
+	padding-top: 7px;
+}
+
+#chromemenu ul li {
+	display: inline;
+}
+
+#chromemenu ul li a {
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 12px;
+	height: 30px;
+	margin: 10px 0pt 0pt;
+	padding-left: 10px;
+}
+
+#chromemenu ul li a:hover {
+	color: #999999;
+	text-decoration: none;
+}
+
+#chromemenu ul li a[onmouseover]:after {
+	content: " v";
+}
+
+.dropmenudiv {
+	background-color: white;
+	border-color: #5ABEE4;
+	border-style: solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 0px solid;
+	border-top: 0px solid;
+	font-family: Verdana;
+	font-size: 12px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 18px;
+	position: absolute;
+	top: 0pt;
+	visibility: hidden;
+	width: 200px;
+	z-index: 100;
+	margin-top: 5px;
+}
+
+.dropmenudiv a {
+	border-bottom: 1px solid #5ABEE4;
+	color: #5ABEE4;
+	display: block;
+	padding: 2px 0pt;
+	text-decoration: none;
+	text-indent: 3px;
+	width: 100%;
+}
+
+.dropmenudiv a:hover {
+	color: #999999;
+	text-decoration: none;
+}

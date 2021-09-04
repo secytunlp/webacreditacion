@@ -1,0 +1,75 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="js/LightForm/css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/rounded.css" type="text/css" />
+<script language="javascript" src="js/funciones.js"></script>
+<script type="text/javascript" src="js/mootools.js"></script>
+<script type="text/javascript">
+
+function cargarPerfil(){
+	var miAjax = new Ajax('Ajax_cargarPerfil.php',
+	{
+		method: 'get',
+		data:$('registrarse'),
+		update:'perfil',
+		onComplete: function()
+		{
+			//$('cd_artista').className="fValidate['required']";
+			
+			//exValidatorA.initialize("altatema", exValidatorA.options);
+		}
+	});
+	miAjax.request();
+
+}
+
+
+</script>
+</head>
+<body>
+			<div class="bar"></div>
+			<div class="logueoEI">
+				<img src="img/Logo_Cyt_1.png"/>
+			<div class="title">Sistema<span>de</span>Acreditaci&oacute;n</div>
+			<div class="title-b"><span>de</span>Proyectos</div>
+				<div id="logo_unlp"></div>
+			</div>
+			<div class="divacceso">
+				<div class="msjerror">
+				<!-- BEGIN: block1 -->
+					 {MSJ}<br />
+				<!-- END: block1 -->
+				</div>
+ 				
+				<form name='registrarse' id='registrarse' action='registrarse.php' method='post' class="niceform">
+					
+					<label align="center">C.U.I.L.</label>
+					<input type='text' name='nu_precuil' id='nu_precuil' size='2' maxlength="2" />-<input type='text' name='nu_documento' id='nu_documento' size='10' maxlength="8" onchange="cargarPerfil();"/>-<input type='text' name='nu_postcuil' id='nu_postcuil' size='1' maxlength="1" /></p> 
+					<label align="center">Password</label>
+					 
+					<input type='password' name='pass' id='pass'  size='27'/>
+					<div id="perfil">
+					 <label align="center">Perfil: </label><select name='perfil' id='perfil'>
+										<option value=""> -- Seleccione uno -- </option> 
+										<!-- BEGIN: option -->				
+										<option value='{DATA.cd_perfil}'>{DATA.ds_perfil}</option>
+										<!-- END: option -->
+									</select> 
+					 </div>
+					<p><input type="submit"  class="buttonSubmit" value="Ingresar"/></p>
+                                        <a href="usuarios/recuperar.php">Recuperar Password&nbsp;|&nbsp;</a><a href="usuarios/registro.php">Registrarse&nbsp;|&nbsp;</a><a href="contacto.php">Contacto&nbsp;</a>
+				</form>
+			</div>
+	
+					
+			<div id="footer"></div>
+</body>
+</html>
+<!-- END: main -->

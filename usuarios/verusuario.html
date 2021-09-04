@@ -1,0 +1,52 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/prototype.js"></script>
+<script type="text/javascript" src="../js/effects.js"></script>
+<script type="text/javascript" src="../js/validation.js"></script>
+</head>
+<body class="bodyPlantilla">
+			
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			
+			<div class="divverusuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				<table class="tablaVer">
+					<tr>
+						<td><p><strong>Apellido y Nombre :</strong></p></td>
+						<td><p>{ds_apynom}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong>C.U.I.L. :</strong></p></td>
+						<td><p>{nu_cuil}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong>E-Mail :</strong></p></td>
+						<td><p>{ds_mail}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong> Perfil : </strong></p></td>
+						<td><p>{ds_perfil} </p></td> 
+					</tr>
+					<tr>
+						<td><p><strong> Facultad : </strong></p></td>
+						<td><p>{ds_facultad} </p></td> 
+					</tr>
+				</table>
+				<p><input type='button' name='volver' value='Volver' onclick="javascript:history.back(-1);"/>
+					
+						
+			</div>
+</body>
+</html>
+<!-- END: main -->

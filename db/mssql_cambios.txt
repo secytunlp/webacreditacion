@@ -1,0 +1,1 @@
+Cambiamos el metodo sql_query para que retorne lo que necesitabamos en un select

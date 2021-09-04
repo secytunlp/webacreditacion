@@ -1,0 +1,43 @@
+<!-- BEGIN: main -->
+<link rel="stylesheet" href="{cssmenu}" type="text/css" />
+<link rel="stylesheet" href="{cssgral}" type="text/css" />
+<script language="javascript" src="{js}"></script>
+
+
+
+<div class="cabecera" style="text-align: left;">
+	<img class="logo_cyt_in" src="../img/Logo_Cyt_1_s.png"/>
+	<div class="title_in">Sistema<span>de</span>Acreditaci&oacute;n</div>
+	<div class="title_in_b"><span>de</span>Proyectos</div>
+</div>
+
+<div class="logout">Bienvenido ds_apynom - <a href="{salir}"><span>Cerrar sesi&oacute;n</a></span></div>
+<div id="chromemenu" class="chromestyle">
+<ul>
+    <li><a href="#" onMouseover="cssdropdown.dropit(this,event,'acceso')">&rsaquo; Acceso</a></li>
+    <li><a href="#" onMouseover="cssdropdown.dropit(this,event,'admin')">&rsaquo; Administraci&oacute;n</a></li>
+    <li><a href="#" onClick="show_log()">&rsaquo; Buscar</a></li>
+	<li><a href="{contacto}">&rsaquo; Contacto</a></li>
+</ul>
+</div>
+<!--  COMIENZO DE LOS SUBMEN�ES  -->
+
+
+
+<div id="acceso" class="dropmenudiv" style="width: 130px; top: 101px;; left: 57px; visibility: hidden;">
+	<a href="{usuarios}">Usuarios</a>
+	<a href="{perfiles}">Perfiles</a>
+	<a href="{cambiarClave}">Cambio de Clave</a>
+</div>
+
+<div id="admin" class="dropmenudiv" style="width: 120px;">
+	<a href="{modificardisciplinas}">Disciplinas</a>
+	<a href="{exportar}">Exportar</a>
+	<a href="{movimientos}">Movimientos</a>
+	<a href="{proyectos}">Proyectos</a>
+	
+</div>
+
+
+
+<!-- END: main -->

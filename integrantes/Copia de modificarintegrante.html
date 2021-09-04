@@ -1,0 +1,210 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+<link rel="stylesheet" href="../css/calendar.css" type="text/css" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/moocheck.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript">
+
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("modificarintegrante");
+});
+
+
+
+
+
+
+</script>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='modificarintegrante' id='modificarintegrante' class="fValidator-form" action='modificarintegrante-action.php' method='post' enctype="multipart/form-data" >
+					<input type="hidden" name="cd_docente" id="cd_docente" value="{cd_docente}"/>
+					<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}"/>
+				  <p><strong>Tipo de investigador  (*):</strong> 
+					  <select name='cd_tipoinvestigador' id='cd_tipoinvestigador' class="fValidate['required']" style='width: 300px' {discod}>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: tipoinvestigador -->				
+										<option value={DATA.cd_tipoinvestigador}>{DATA.ds_tipoinvestigador}</option>
+										<!-- END: tipoinvestigador -->
+					  </select>
+				  </p>
+					<p><strong>C.U.I.L.(*):</strong> 
+					  <input type="text" name="nu_precuil" id="nu_precuil" value="{nu_precuil}" size="2" maxlength="2" class="fValidate['integer','required']" {disabled1}/> -
+	<input type="text" name="nu_documento" id="nu_documento" value="{nu_documento}" size="10" maxlength="9" class="fValidate['integer','required']" {disabled1}/> - <input type="text" name="nu_postcuil" id="nu_postcuil" value="{nu_postcuil}" size="1" maxlength="1" class="fValidate['integer','required']" {disabled1}/></p>
+					<p><strong>Apellido y Nombre(*): </strong>
+				      <input type='text' name='ds_apellido' id='ds_apellido' size='20' class="fValidate['required']" {disabled1} value="{ds_apellido}" onchange='mayusculas(this)'/>,<input type='text' name='ds_nombre' id='ds_nombre' size='20' class="fValidate['required']" {disabled1} value="{ds_nombre}" onchange='mayusculas(this)'/></p> 
+					  <p><strong>Calle: </strong>
+			      <input type='text' name='ds_calle' id='ds_calle' size='20' value="{ds_calle}" onchange='mayusculas(this)'/> <strong>Nro.</strong><input type='text' name='nu_nro' id='nu_nro' size='10' value="{nu_nro}" onchange='mayusculas(this)'/><strong>Piso</strong><input type='text' name='nu_piso' id='nu_piso' size='5' value="{nu_piso}" onchange='mayusculas(this)'/><strong>Depto.</strong><input type='text' name='ds_depto' id='ds_depto' size='5' value="{ds_depto}" onchange='mayusculas(this)'/></p>
+				  <p><strong>Provincia:</strong> 
+					  <select name='cd_provincia' id='cd_provincia' style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: provincia -->				
+										<option value={DATA.cd_provincia}>{DATA.ds_provincia}</option>
+										<!-- END: provincia -->
+					  </select>
+				  </p>
+				  <p><strong>Localidad: </strong>
+			        <input type='text' name='ds_localidad' id='ds_localidad' size='26' value="{ds_localidad}" onchange='mayusculas(this)'/> 
+					<strong>C.P.</strong>
+			        <input type='text' name='nu_cp' id='nu_cp' size='10' value="{nu_cp}" onchange='mayusculas(this)'/></p>
+			       <p> <strong>Tel&eacute;fono</strong>
+			        <input type='text' name='nu_telefono' id='nu_telefono' size='46' value="{nu_telefono}" onchange='mayusculas(this)'/></p>
+					<p><strong>E-mail: </strong>
+			        <input type='text' name='ds_email' id='ds_email' size='46' value="{ds_email}" class="fValidate['email']"/> </p>
+					<p><strong>Universidad  (*):</strong> 
+					  <select name='cd_universidad' id='cd_universidad' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: universidad -->				
+										<option value={DATA.cd_universidad}>{DATA.ds_universidad}</option>
+										<!-- END: universidad -->
+					  </select>
+				  </p>
+					<p><strong>Unidad Acad&eacute;mica (*):</strong> 
+					  <select name='cd_facultad' id='cd_facultad' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: facultad -->				
+										<option value={DATA.cd_facultad}>{DATA.ds_facultad}</option>
+										<!-- END: facultad -->
+					  </select> 
+				  </p> 
+				 <p><strong>Tipo de Lugar de Trabajo (*):</strong> 
+					  <select name='cd_tipounidad' id='cd_tipounidad' class="fValidate['required']" onchange="cargarUnidad('modificarintegrante',0,0);" style='width: 300px'>
+										<option value=""> -- Seleccione un -- </option>
+										<!-- BEGIN: tipounidad -->				
+										<option value={DATA.cd_tipounidad}>{DATA.ds_tipounidad}</option>
+										<!-- END: tipounidad -->
+					  </select>
+				  </p>
+					<div id="unidad0">
+					<p><strong>Lugar de trabajo nivel 0 (*):</strong> 
+					  <select name='cd_unidad0' id='cd_unidad0' class="fValidate['required']" style='width: 300px' onchange="cargarUnidad('modificarintegrante', '1', '0');">
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: unidad -->				
+										<option value={DATA.cd_unidad}>{DATA.ds_unidad}</option>
+										<!-- END: unidad -->
+					  </select>
+				  </p>
+				  </div>
+				  {divsunidades}
+				  <p><strong>Cargo docente  (*):</strong> 
+					  <select name='cd_cargo' id='cd_cargo' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: cargo -->				
+										<option value={DATA.cd_cargo}>{DATA.ds_cargo}</option>
+										<!-- END: cargo -->
+					  </select>
+				  </p>
+				   <p><strong>Dedicaci&oacute;n(*):</strong> 
+					  <select name='cd_deddoc' id='cd_deddoc' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: deddoc -->				
+										<option value={DATA.cd_deddoc}>{DATA.ds_deddoc}</option>
+										<!-- END: deddoc -->
+					  </select>
+				  </p>
+					<p><strong>Categor&iacute;a de Docente Investigador(*):</strong> 
+					  <select name='cd_categoria' id='cd_categoria' class="fValidate['required']" style='width: 300px' {disabled1}>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: categoria -->				
+										<option value={DATA.cd_categoria}>{DATA.ds_categoria}</option>
+										<!-- END: categoria -->
+					  </select>
+				  </p>
+				  <p><strong>Cargo en la Carrera del  Investigador(*):</strong> 
+					  <select name='cd_carrerainv' id='cd_carrerainv' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: carrerainv -->				
+										<option value={DATA.cd_carrerainv}>{DATA.ds_carrerainv}</option>
+										<!-- END: carrerainv -->
+					  </select>
+				  </p>
+				   <p><strong>Organismo(*):</strong> 
+					  <select name='cd_organismo' id='cd_organismo' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: organismo -->				
+										<option value={DATA.cd_organismo}>{DATA.ds_organismo}</option>
+										<!-- END: organismo -->
+					  </select>
+				  </p>
+					<p><strong>T&iacute;tulo de Grado(*):</strong> 
+					  <select name='cd_titulo' id='cd_titulo' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: titulo -->				
+										<option value={DATA.cd_titulo}>{DATA.ds_titulo}</option>
+										<!-- END: titulo -->
+					  </select>
+				  </p>
+							
+					
+					
+	
+	
+	<p><strong>Curriculum Vitae (*):</strong> 
+				    <input type='file' name='ds_curriculum' id='ds_curriculum' size='32'/><input type="hidden" name="ds_curriculumH" id="ds_curriculumH" value="{ds_curriculumH}" />
+				  <div id='cv'></div></p>
+					 <p>
+					 
+					 <table width="100%" border="1" align="center" cellspacing="0">
+						 <caption align="top">
+                     <strong>Participaci&oacute;n en proyectos (*):</strong><span class="Estilo1">El Director/es y cada integrante deber&aacute; especificar todos los proyectos en los que interviene (t&iacute;tulo y director) indicando claramente la participaci&oacute;n en horas semanales en cada proyecto (incluyendo el proyecto en acreditaci&oacute;n).<br />
+                     Los miembros del proyecto con mayor dedicaci&oacute;n podr&aacute;n participarhasta en 2 (dos) proyectos acreditados, y los miembros con dedicaci&oacute;n simple en un (1) proyecto.</span>
+                    </caption>
+  <tr>
+    <th scope="col"><div align="center">C&oacute;digo</div></th>
+    <th scope="col"><div align="center">T&iacute;tulo</div></th>
+	 <th scope="col"><div align="center">Director</div></th>
+	  <th scope="col"><div align="center">Inicio</div></th>
+	   <th scope="col"><div align="center">Fin</div></th>
+	   <th scope="col"><div align="center">Horas por semana</div></th>
+  </tr>		
+  <!-- BEGIN: row -->
+	<tr>
+		<td>{DATOS.ds_codigo}</td>
+		<td><div align="left">{DATOS.ds_titulo}</div></td>
+		<td><div align="left">{DATOS.ds_director}</div></td>
+		<td>{DATOS.dt_ini}</td>
+		<td>{DATOS.dt_fin}</td>
+		<td><input type="text" name="nu_horasinv{DATOS.cd_proyecto}" id="nu_horasinv{DATOS.cd_proyecto}" size='10' maxlength="50" value="{DATOS.nu_horasinv}" class="fValidate['integer','required']" /><div id="div{DATOS.item}"></div><input type="hidden" name="p{DATOS.item}" id="p{DATOS.item}" value="{DATOS.cd_proyecto}" /></td>
+	</tr>
+	<!-- END: row -->
+</table>
+									 </p>
+					<p style="text-align:center">
+					<input type='submit' name='submit' value='Modificar' onClick="return validarHoras(this.form)">
+					<input type='reset' name='cancelar' value='Cancelar' onclick="javascript:history.back(-1);"/>
+					</p>
+				</form>	
+</div>
+</body>
+</html>
+<!-- END: main -->

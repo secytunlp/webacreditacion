@@ -1,0 +1,44 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+</head>
+<body class=""><div class="bar_in"></div>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			
+			<div class="divverusuario">
+ 				<div align="justify"><p class="titulo_modificar_usuario">{titulo}</p></div>
+ 				<table class="tablaVer_perfil niceForm ">
+					<tr>
+						<td><p><strong>Identificador de Perfil :</strong></p></td>
+						<td><p>{cd_perfil}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong>Nombre Perfil :</strong></p></td>
+						<td><p>{ds_perfil}</p></td>
+					</tr>
+					<tr>
+						<td><p><strong> Funciones : </strong></p></td>
+						<td>
+							<!-- BEGIN:funciones -->
+								{ds_funciones} <br/>
+							<!-- END:funciones -->
+						</td> 
+					</tr>
+				</table>
+				<p style="text-align:center"><input type='button' class="buttonSubmit" name='volver' value='Volver' onclick="javascript:history.back(-1);"/>
+					
+						
+			</div>
+</body>
+</html>
+<!-- END: main -->

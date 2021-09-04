@@ -1,0 +1,103 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+            	
+            	$('#gridFinanciamientoanterior').keydown(function (e) {
+           		 var code = e.keyCode || e.which;
+           			
+           		   if (code == '9') {
+           			 
+           		 	return false;
+           		}
+           		});
+            	
+                var textBefore = '';
+                $('#gridFinanciamientoanterior').find('td input').hover(function() {
+                    textBefore = $(this).val();
+                                  
+                    $(this).focus();
+                }, function() {
+                    var $field = $(this),
+                        text = $field.val();
+                    
+                    $(this).blur();
+                    // Set back previous value if empty
+                    if (text.length <= 0) {
+                        $field.html(textBefore);
+                    } else if (textBefore !== text) {
+                        // Text has been changed make query
+                        var value = {
+                            'row': parseInt(getRowData($field)),
+                            'column': parseInt($field.closest('tr').children().find(':input').index(this)),
+                            'text': text
+                        };
+                        $.post('Ajax_financiamientoanterior.php', value)
+                        .error(function() {
+                            $('#message')
+                                .html('Make sure you inserted correct data')
+                                .fadeOut(3000)
+                                .html('&nbsp');
+                            $field.val(textBefore);
+                        })
+                        .success(function() {
+                            $field.val(text);
+                            doGridFinanciamientoanterior();
+                        });
+                    } else {
+                        $field.val(text);
+                    }
+ 
+                });
+                
+                
+ 
+                // Get the id number from row
+                function getRowData($td) {
+                    return $td.closest('tr').prop('class').match(/\d+/)[0];
+                }
+            });
+            
+        </script>
+        <title></title>
+    </head>
+    <body>
+    
+    <div id="gridFinanciamientoanterior">
+    
+    <table>
+        <thead>
+            <tr>
+                
+               
+                <td>A&ntilde;o</td>
+                <td>U.N.L.P.</td>
+                <td>Instituciones Nacionales</td>
+                <td>Instituciones Extranjeras</td>
+                <td>Total</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BEGIN: row -->
+            <tr class="{DATOS.cd_financiamientoanterior}">
+                <td>{DATOS.nu_year}</td>
+                <td><input type="text" value="{DATOS.nu_unlp}" /></td>
+                <td><input type="text" value="{DATOS.nu_nacionales}" /></td>
+                <td><input type="text" value="{DATOS.nu_extranjeras}" /></td>
+                <td>{DATOS.nu_total}</td>
+               
+                
+            </tr>
+        <!-- END: row -->
+        </tbody>
+    </table>
+    
+	</div>
+    
+    </body>
+<!-- END: main -->

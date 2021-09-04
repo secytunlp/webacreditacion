@@ -1,0 +1,379 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript" src="../js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript" src="../js/ckeditor/adapters/jquery.js"></script>	
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+var exValidatorA;
+window.addEvent("domready", function() {
+	exValidatorA = new fValidator("modificarintegrante");
+});
+{onload}
+
+function validarArea(){
+{validar}
+}
+
+
+function cargarDatos(){
+	var miAjax = new Ajax('Ajax_cargarDatos.php',
+	{
+		method: 'get',
+		data:$('modificarintegrante'),
+		update:'datos',
+		onComplete: function()
+		{
+			$('nu_precuil').className="fValidate['integer','required']";
+			$('nu_documento').className="fValidate['integer','required']";
+			$('nu_postcuil').className="fValidate['integer','required']";
+			$('ds_apellido').className="fValidate['required']";
+			$('ds_nombre').className="fValidate['required']";
+			//$('cd_categoria').className="fValidate['required']";
+			$('ds_mail').className="fValidate['email']";
+			/*$('cd_titulogrado').className="fValidate['required1']";
+			$('ds_titulogrado').className="fValidate['required']";*/
+			$('cd_cargo').className="fValidate['required']";
+			$('cd_deddoc').className="fValidate['required']";
+			$('cd_facultad').className="fValidate['required']";
+			$('ds_universidad').className="fValidate['required']";
+			$('cd_universidad').className="fValidate['required1']";
+			$('cd_carrerainv').className="fValidate['required']";
+			$('cd_organismo').className="fValidate['required']";
+		//	$('cd_tipounidad').className="fValidate['required']";
+			$('ds_unidad').className="fValidate['required']";
+			$('cd_unidad').className="fValidate['required1']";
+			$('nu_horasinv{cd_proyecto}').className="fValidate['integer']";
+			var i=0;
+			var ok=1;
+			while (ok==1){
+				var p = document.getElementById('p'+i);
+				
+				i++;
+				if (p==null) ok=0;
+				else $('nu_horasinv'+p.value).className="fValidate['integer','required']";
+			}
+			
+			
+			exValidatorA.initialize("modificarintegrante", exValidatorA.options);
+			
+			 var options_xml = {
+			script: function (input) { return "../proyectos/Ajax_listarUnidades.php?input="+input; },
+			varname:"input",
+			noresults:"No se encontraron resultados",
+			callback: function (obj) { document.getElementById('cd_unidad').value = obj.id;
+				document.getElementById('nu_nivelunidad').value = obj.nivel;
+				
+			}};
+		var as_xml = new bsn.AutoSuggest('ds_unidad', options_xml);
+			var apellido_xml = {
+                            script: function (input) { return "Ajax_listarDocentes.php?input="+input; },
+                            varname:"input",
+                            noresults:"No se encontraron resultados",
+                            callback: function (obj) { document.getElementById('cd_docente1').value = obj.id;
+                            cargarDatos();
+		
+                         }};
+
+                        var ap_xml = new bsn.AutoSuggest('ds_apellido', apellido_xml);
+                        var titulo_xml = {
+                                script: function (input) { return "Ajax_listarTitulosDeGrado.php?input="+input; },
+                                varname:"input",
+                                noresults:"No se encontraron resultados",
+                                callback: function (obj) { document.getElementById('cd_titulogrado').value = obj.id;
+                        }};
+                        var ap_xml = new bsn.AutoSuggest('ds_titulogrado', titulo_xml);
+						var titulopost_xml = {
+								script: function (input) { return "Ajax_listarTitulosDePosgrado.php?input="+input; },
+								varname:"input",
+										noresults:"No se encontraron resultados",
+								callback: function (obj) { document.getElementById('cd_titulopost').value = obj.id;
+							}};
+							
+							var ap1_xml = new bsn.AutoSuggest('ds_titulopost', titulopost_xml);
+					     var uni_xml = {
+                                script: function (input) { return "Ajax_listarUniversidades.php?input="+input; },
+                                varname:"input",
+                                noresults:"No se encontraron resultados",
+                                callback: function (obj) { document.getElementById('cd_universidad').value = obj.id;
+                        }};
+                        var as_xml = new bsn.AutoSuggest('ds_universidad', uni_xml);               
+									   
+									    $('ds_apellido').focus();
+                                }
+                        });
+
+			
+		
+	miAjax.request();
+}
+
+</script>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='modificarintegrante' id='modificarintegrante' action='modificarintegrante-action.php' class="fValidator-form niceform form_solicitudes" method='post' enctype="multipart/form-data">
+				 <input type="hidden" name="cd_docente" id="cd_docente" value="{cd_docente}"/>
+				 <input type="hidden" name="cd_docente1" id="cd_docente1" value="{cd_docente}"/>
+				<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}" />
+				 <p><strong>Tipo de investigador  (*):</strong> 
+					  <select name='cd_tipoinvestigador' id='cd_tipoinvestigador' class="fValidate['required']" style='width: 300px' {discod}>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: tipoinvestigador -->				
+										<option value={DATA.cd_tipoinvestigador}>{DATA.ds_tipoinvestigador}</option>
+										<!-- END: tipoinvestigador -->
+					  </select>
+				  </p>
+				  <span id="datos">
+				   <p><strong>Apellido y Nombre(*): </strong>
+			      <input type='text' name='ds_apellido' id='ds_apellido' style="width:300px" class="fValidate['required']" {disabled1} onchange='mayusculas(this)' value="{ds_apellido}"/>,<input type='text' name='ds_nombre' id='ds_nombre' size='20' class="fValidate['required']" {disabled1} onchange='mayusculas(this)' value="{ds_nombre}"/></p>
+				  <p><strong>C.U.I.L.(*):</strong> 
+				  <input type='text'  name='nu_precuil' id='nu_precuil' size='2' maxlength="2" class="fValidate['integer','required']" value="{nu_precuil}"/>-<input type='text'  name='nu_documento' id='nu_documento' size='10' maxlength="8" class="fValidate['integer','required']" value="{nu_documento}"/>-<input type='text' name='nu_postcuil' id='nu_postcuil' size='1'  maxlength="1" class="fValidate['integer','required']" value="{nu_postcuil}"/> F. Nacimiento (*):
+                                                                          <input type='text' name='dt_nacimiento' id='dt_nacimiento' size='10' value="{dt_nacimiento}" class="fValidate['required','date']"/></p> 
+				 
+				  
+				  <p><strong>Calle: </strong>
+			      <input type='text' name='ds_calle' id='ds_calle' size='20' onchange='mayusculas(this)' value="{ds_calle}" /> <strong>Nro.</strong><input type='text' name='nu_nro' id='nu_nro' size='10' onchange='mayusculas(this)' value="{nu_nro}"/><strong>Piso</strong><input type='text' name='nu_piso' id='nu_piso' size='5' onchange='mayusculas(this)' value="{nu_piso}"/>
+			      <strong>Dpto.</strong>
+			      <input type='text' name='ds_depto' id='ds_depto' size='5' onchange='mayusculas(this)' value="{ds_depto}"/></p>
+				  <p><strong>Provincia:</strong> 
+					  <select name='cd_provincia' id='cd_provincia' style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: provincia -->				
+										<option value={DATA.cd_provincia}>{DATA.ds_provincia}</option>
+										<!-- END: provincia -->
+					  </select>
+				  <strong>Localidad: </strong>
+			        <input type='text' name='ds_localidad' id='ds_localidad' size='20' onchange='mayusculas(this)' value="{ds_localidad}"/> 
+			        <strong>C.P.</strong>
+			        <input type='text' name='nu_cp' id='nu_cp' size='10' onchange='mayusculas(this)' value="{nu_cp}"/></p>
+			       <p> <strong>Tel&eacute;fono</strong>
+			        <input type='text' name='nu_telefono' id='nu_telefono' size='46' onchange='mayusculas(this)' value="{nu_telefono}"/>
+			        <strong>E-mail (*): </strong>
+			        <input type='text' name='ds_mail' id='ds_mail' size='46' class="fValidate['email','required']"  value="{ds_mail}"/> </p>
+				 	<p><strong>Universidad  (*):</strong> 
+					  <input type="text" name="ds_universidad" id="ds_universidad" value="{ds_universidad}" class="fValidate['required']"  style="width:350px" onchange='mayusculas(this)'/><input type='text' id='cd_universidad' name='cd_universidad' value='{cd_universidad}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/>
+				  </p>
+					<p><strong>Unidad Acad&eacute;mica (*):</strong> 
+					  <select name='cd_facultad' id='cd_facultad' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: facultad -->				
+										<option value={DATA.cd_facultad}>{DATA.ds_facultad}</option>
+										<!-- END: facultad -->
+					  </select> 
+				  </p> 
+					 
+					
+					<p><strong>Lugar de trabajo (*):</strong> 
+					  <input type='text' id='nu_nivelunidad' name='nu_nivelunidad' value='{nu_nivelunidad}' style='font-size: 10px; width: 20px;display:none' />
+                                                <input type='text' name='ds_unidad' id='ds_unidad' value='{ds_unidad}' style='width:500px' onchange='mayusculas(this)'  class="fValidate['required']"/>
+                                                <input type='text' id='cd_unidad' name='cd_unidad' value='{cd_unidad}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/>
+				  </p>
+					 
+					
+				  <p><strong>Cargo docente  (*):</strong> 
+					  <select name='cd_cargo' id='cd_cargo' class="fValidate['required']">
+										<option value=""> -- Seleccione uno -- </option>
+										<!-- BEGIN: cargo -->				
+										<option value={DATA.cd_cargo}>{DATA.ds_cargo}</option>
+										<!-- END: cargo -->
+					  </select>
+					  {dt_cargo}
+				 <strong>Dedicaci&oacute;n(*):</strong> 
+					  <select name='cd_deddoc' id='cd_deddoc' class="fValidate['required']">
+										<option value=""> -- Seleccione una -- </option>
+										<!-- BEGIN: deddoc -->				
+										<option value={DATA.cd_deddoc}>{DATA.ds_deddoc}</option>
+										<!-- END: deddoc -->
+					  </select>
+				  </p><div id="divCargo" class="fValidator-msg"></div><div id="divDed" class="fValidator-msg" align="right"></div>
+					<!-- <p><strong>Categor&iacute;a de Docente Investigador(*):</strong> 
+					  <select name='cd_categoria' id='cd_categoria' class="fValidate['required']" style='width: 300px'>
+										<option value=""> -- Seleccione una -- </option> -->
+										<!-- BEGIN: categoria -->				
+										<!--<option value={DATA.cd_categoria}>{DATA.ds_categoria}</option> -->
+										<!-- END: categoria -->
+					 <!-- </select>
+				  </p> -->
+				  <p>Becario: SI
+    <input name="bl_becario" id="bl_becario" type="radio" value="1" {chksi}/>
+ No
+ <input name="bl_becario" type="radio" value="0" {chkno}/>
+</p>
+					<p> <strong>Tipo</strong>
+			        <input type='text' name='ds_tipobeca' id='ds_tipobeca' size='46' onchange='mayusculas(this)' value="{ds_tipobeca}"/>
+			        <strong>Instituci&oacute;n: </strong>
+			        <select name='ds_orgbeca' id='ds_orgbeca'>
+										<option value=""> -- Seleccione uno -- </option>
+										
+										<option value='ANPCyT' {selectedANPCyT}>ANPCyT</option>
+										<option value='CIC' {selectedCIC}>CIC</option>
+										<option value='CONICET' {selectedCONICET}>CONICET</option>
+										<option value='UNLP' {selectedUNLP}>UNLP</option>
+										
+					  </select> </p><div id="divTipobeca" class="fValidator-msg"></div><div id="divOrgbeca" class="fValidator-msg" align="right"></div>
+					
+					<p><strong>Cargo en la C. del  Inv.(*):</strong> 
+					  <select name='cd_carrerainv' id='cd_carrerainv' class="fValidate['required']">
+										<option value=""> -- Seleccione uno -- </option>
+										<!-- BEGIN: carrerainv -->				
+										<option value={DATA.cd_carrerainv}>{DATA.ds_carrerainv}</option>
+										<!-- END: carrerainv -->
+					  </select>
+				  <strong>Organismo(*):</strong> 
+					  <select name='cd_organismo' id='cd_organismo' class="fValidate['required']" style='width: 250px'>
+										<option value=""> -- Seleccione uno -- </option>
+										<!-- BEGIN: organismo -->				
+										<option value={DATA.cd_organismo}>{DATA.ds_organismo}</option>
+										<!-- END: organismo -->
+					  </select>
+				  </p>
+				   <div id="divCarrera" class="fValidator-msg"></div>
+				  <p><strong>T&iacute;tulo de Grado(*):</strong> 
+					 <input type="text" name="ds_titulogrado" id="ds_titulogrado" value="{ds_titulogrado}" class="fValidate['required']" style="width:280px" onchange='mayusculas(this)' />
+                                                       <input type='text' id='cd_titulogrado' name='cd_titulogrado' value='{cd_titulogrado}' class="fValidate['required1']" style='font-size: 10px; width: 20px;display:none' />
+				  <strong>T&iacute;tulo de Posgrado:</strong>
+				 
+				  <input type="text" name="ds_titulopost" id="ds_titulopost" value="{ds_titulopost}" style="width:280px" onchange='mayusculas(this)' />
+				 
+				  <input type='text' id='cd_titulopost' name='cd_titulopost' value='{cd_titulopost}' style='font-size: 10px; width: 20px;display:none' />
+				  </p><div id="divtitulogrado" class="fValidator-msg"></div>
+				  <span style="color:#A43B3B">IMPORTANTE: EL CV deber&aacute; ser el generado (pdf/doc) por el sistema  SIGEVA-UNLP ( banco de datos de actividades de ciencia y t&eacute;cnica)</span>
+				   <p><strong>Curriculum Vitae (*):</strong> 
+				    <input type='file' name='ds_curriculum' id='ds_curriculum' size='32'/><input type="hidden" name="ds_curriculumH" id="ds_curriculumH" value="{ds_curriculumH}" />
+					<span style="color:#A43B3B">IMPORTANTE: los archivos a subir no deben superar los 4 Mb de tama&ntilde;o</span>
+				   <div id='cv'>{cvcargado}</div></p>
+				   {antecedentesppid}
+				   {antecedentesppidDIR}
+				  <p>
+							<table width="100%" border="1" align="center" cellspacing="0">
+						 <caption align="top">
+                     <strong>Participaci&oacute;n en proyectos (*):</strong><span class="Estilo1">El Director y cada integrante deber&aacute; especificar todos los proyectos en los que interviene (t&iacute;tulo y director) indicando claramente la participaci&oacute;n en horas semanales en cada proyecto (incluyendo el proyecto en acreditaci&oacute;n).<br />
+                     Los miembros del proyecto con mayor dedicaci&oacute;n podr&aacute;n participar hasta en 2 (dos) proyectos acreditados, y los miembros con dedicaci&oacute;n simple en un (1) proyecto.</span>
+                    </caption>
+  <tr>
+    <th scope="col"><div align="center">C&oacute;digo</div></th>
+    <th scope="col"><div align="center">T&iacute;tulo</div></th>
+	 <th scope="col"><div align="center">Director</div></th>
+	  <th scope="col"><div align="center">Tipo</div></th>
+	  <th scope="col"><div align="center">Inicio</div></th>
+	   <th scope="col"><div align="center">Fin</div></th>
+	   <th scope="col"><div align="center">Horas por semana</div></th>
+  </tr>		
+  <!-- BEGIN: row -->
+	<tr>
+		<td>{DATOS.ds_codigo}</td>
+		<td><div align="left">{DATOS.ds_titulo}</div></td>
+		<td><div align="left">{DATOS.ds_director}</div></td>
+		<td><div align="left">{DATOS.ds_tipoinvestigador}</div></td>
+		<td>{DATOS.dt_ini}</td>
+		<td>{DATOS.dt_fin}</td>
+		<td><input type="text" name="nu_horasinv{DATOS.cd_proyecto}" id="nu_horasinv{DATOS.cd_proyecto}" size='10' maxlength="50" value="{DATOS.nu_horasinv}" {DATOS.disabled} class="fValidate['integer','required']" /><div id="div{DATOS.item}" class="fValidator-msg"></div><input type="hidden" name="p{DATOS.item}" id="p{DATOS.item}" value="{DATOS.cd_proyecto}" /><input type="hidden" name="pTI{DATOS.item}" id="pTI{DATOS.item}" value="{DATOS.cd_tipoinvestigador}" /></td>
+	</tr>
+	<!-- END: row -->
+</table>
+									 </p></span>
+					<p style="text-align:center">
+					<input type='submit' name='aceptar' value='Aceptar' onClick="return validarHoras(this.form)" class="buttonSubmit"/>
+						<input type='reset' name='cancelar' value='Cancelar' onclick="javascript:location.href='../proyectos/verproyecto.php?id={cd_proyecto}';" class="buttonSubmit"/>
+					</p>
+					(*) Campos requeridos	
+				</form>		
+				
+			</div>
+			<script type="text/javascript">
+	
+
+	 var options_xml = {
+			script: function (input) { return "../proyectos/Ajax_listarUnidades.php?input="+input; },
+			varname:"input",
+			noresults:"No se encontraron resultados",
+			callback: function (obj) { document.getElementById('cd_unidad').value = obj.id;
+				document.getElementById('nu_nivelunidad').value = obj.nivel;
+				
+			}};
+		var as_xml = new bsn.AutoSuggest('ds_unidad', options_xml);
+        
+	var apellido_xml = {
+		script: function (input) { return "Ajax_listarDocentes.php?input="+input; },
+		varname:"input",
+                noresults:"No se encontraron resultados",
+		callback: function (obj) { document.getElementById('cd_docente1').value = obj.id;
+		cargarDatos();
+	}};
+	var ap_xml = new bsn.AutoSuggest('ds_apellido', apellido_xml);
+	  var titulo_xml = {
+		script: function (input) { return "Ajax_listarTitulosDeGrado.php?input="+input; },
+		varname:"input",
+                noresults:"No se encontraron resultados",
+		callback: function (obj) { document.getElementById('cd_titulo').value = obj.id;
+	}};
+	
+	var ap_xml = new bsn.AutoSuggest('ds_titulo', titulo_xml);
+	
+	 var titulopost_xml = {
+		script: function (input) { return "Ajax_listarTitulosDePosgrado.php?input="+input; },
+		varname:"input",
+                noresults:"No se encontraron resultados",
+		callback: function (obj) { document.getElementById('cd_titulopost').value = obj.id;
+	}};
+	
+	var ap1_xml = new bsn.AutoSuggest('ds_titulopost', titulopost_xml);
+	 var uni_xml = {
+                                script: function (input) { return "Ajax_listarUniversidades.php?input="+input; },
+                                varname:"input",
+                                noresults:"No se encontraron resultados",
+                                callback: function (obj) { document.getElementById('cd_universidad').value = obj.id;
+                        }};
+                        var as_xml = new bsn.AutoSuggest('ds_universidad', uni_xml);
+						 var titulo_xml = {
+		script: function (input) { return "Ajax_listarTitulosDeGrado.php?input="+input; },
+		varname:"input",
+                noresults:"No se encontraron resultados",
+		callback: function (obj) { document.getElementById('cd_titulogrado').value = obj.id;
+	}};
+	
+	var ap_xml = new bsn.AutoSuggest('ds_titulogrado', titulo_xml);
+	
+	 var titulopost_xml = {
+		script: function (input) { document.getElementById('cd_titulopost').value=0;
+		return "Ajax_listarTitulosDePosgrado.php?input="+input; },
+		varname:"input",
+                noresults:"No se encontraron resultados",
+		callback: function (obj) { document.getElementById('cd_titulopost').value = obj.id;
+	}};
+	
+	var ap1_xml = new bsn.AutoSuggest('ds_titulopost', titulopost_xml);
+	</script>
+</body>
+</html>
+<!-- END: main -->

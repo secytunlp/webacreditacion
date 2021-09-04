@@ -1,0 +1,127 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var textBefore = '';
+                $('#grid{year}').find('td input').hover(function() {
+                    textBefore = $(this).val();
+                    typeInput = $(this).attr('type');
+                    if(typeInput=='checkbox'){
+						if($(this).attr('checked')){
+							textBefore = 1;
+						}
+						else{
+							textBefore = 0;
+						}
+                    	
+                    	
+                        }
+                   
+                    $(this).focus();
+                }, function() {
+                    var $field = $(this),
+                        text = $field.val();
+                    if(typeInput=='checkbox'){
+                    	if($(this).attr('checked')){
+                    		text = 1;
+						}
+						else{
+							text = 0;
+						}
+                    	
+                        }
+                    $(this).blur();
+                    // Set back previous value if empty
+                    if (text.length <= 0) {
+                        $field.html(textBefore);
+                    } else if (textBefore !== text) {
+                        // Text has been changed make query
+                        var value = {
+                            'row': parseInt(getRowData($field)),
+                            'column': parseInt($field.closest('tr').children().find(':input').index(this)),
+                            'text': text
+                        };
+                        $.post('Ajax_cronograma.php', value)
+                        .error(function() {
+                            $('#message')
+                                .html('Make sure you inserted correct data')
+                                .fadeOut(3000)
+                                .html('&nbsp');
+                            $field.val(textBefore);
+                        })
+                        .success(function() {
+                            $field.val(text);
+                        });
+                    } else {
+                        $field.val(text);
+                    }
+ 
+                });
+ 
+                // Get the id number from row
+                function getRowData($td) {
+                    return $td.closest('tr').prop('class').match(/\d+/)[0];
+                }
+            });
+            
+        </script>
+        <title></title>
+    </head>
+    <body>
+    
+    <div id="grid{year}">
+    
+    <table>
+        <thead>
+            <tr>
+                
+                <td width="600px" rowspan="2" align="center">Actividad</td>
+                 <td colspan="13" align="center">Meses</td></tr><tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                
+                <td>acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- BEGIN: row -->
+            <tr class="{DATOS.cd_cronograma}">
+                <td><input id="ds_actividad{DATOS.year}" type="text" value="{DATOS.ds_actividad}" /></td>
+                
+                <td><input type="checkbox" value="{DATOS.bl_value1}" {DATOS.bl_checked1}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value2}" {DATOS.bl_checked2}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value3}" {DATOS.bl_checked3}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value4}" {DATOS.bl_checked4}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value5}" {DATOS.bl_checked5}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value6}" {DATOS.bl_checked6}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value7}" {DATOS.bl_checked7}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value8}" {DATOS.bl_checked8}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value9}" {DATOS.bl_checked9}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value10}" {DATOS.bl_checked10}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value11}" {DATOS.bl_checked11}/></td>
+                <td><input type="checkbox" value="{DATOS.bl_value12}" {DATOS.bl_checked12}/></td>
+                
+                <td><a href="#" onclick="eliminar('{DATOS.cd_cronograma}','{DATOS.year}'); return false;"><img class="hrefImg" src="../img/del.jpg" title="Eliminar Linea" /></a></td>
+            </tr>
+        <!-- END: row -->
+        </tbody>
+    </table>
+    
+    </div>
+    
+    </body>
+<!-- END: main -->

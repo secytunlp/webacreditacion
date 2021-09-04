@@ -1,0 +1,581 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<!--  <script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script> -->
+<script type="text/javascript" src="../js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript" src="../js/ckeditor/adapters/jquery.js"></script>
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script src="../js/jquery/jquery-1.7.min.js"></script>
+<script src="../js/jquery/jVal.js"></script>
+<script src="../js/jquery/jquery.scrollTo.js"></script>
+
+<script type="text/javascript">
+/*var exValidatorA;
+window.addEvent("domready", function() {
+	exValidatorA = new fValidator("altaproyecto5");
+});*/
+
+function totales(){
+	var nu_duracion = document.getElementById('nu_duracion');
+	var cant = (nu_duracion.value==4)?5:3;
+	var divTotalservicios = document.getElementById('divTotalservicios');
+	var divTotalconsumo = document.getElementById('divTotalconsumo');
+	var divTotalbibliografia = document.getElementById('divTotalbibliografia');
+	var divTotaltotal = document.getElementById('divTotaltotal');
+	var totalservicios = 0;
+	var totalconsumo = 0;
+	var totalbibliografia = 0;
+	var totaltotal = 0;
+	for (var i=1; i<cant; i++){
+		var nu_consumo = document.getElementById('nu_consumo'+i);
+		var nu_servicios = document.getElementById('nu_servicios'+i);
+		var nu_bibliografia = document.getElementById('nu_bibliografia'+i);
+		var nu_cientifico = document.getElementById('nu_cientifico'+i);
+		var nu_computacion = document.getElementById('nu_computacion'+i);
+		var nu_otros = document.getElementById('nu_otros'+i);
+		var total = document.getElementById('total'+i);
+		var htotal = document.getElementById('htotal'+i);
+		var consumo = (nu_consumo==null)?0:((isNaN(parseFloat(nu_consumo.value)))?0:parseFloat(nu_consumo.value));
+		var servicios = (nu_servicios==null)?0:((isNaN(parseFloat(nu_servicios.value)))?0:parseFloat(nu_servicios.value));
+		var bibliografia = (nu_bibliografia==null)?0:((isNaN(parseFloat(nu_bibliografia.value)))?0:parseFloat(nu_bibliografia.value));
+		var cientifico = (nu_cientifico==null)?0:((isNaN(parseFloat(nu_cientifico.value)))?0:parseFloat(nu_cientifico.value));
+		var computacion = (nu_computacion==null)?0:((isNaN(parseFloat(nu_computacion.value)))?0:parseFloat(nu_computacion.value));
+		var otros = (nu_otros==null)?0:((isNaN(parseFloat(nu_otros.value)))?0:parseFloat(nu_otros.value));
+		totalconsumo = totalconsumo + consumo;
+		totalservicios = totalservicios + servicios;
+		totalbibliografia = totalbibliografia + bibliografia;
+		total.innerHTML = formatDec(consumo+servicios+bibliografia+cientifico+computacion+otros,2);
+		htotal.value = formatDec(consumo+servicios+bibliografia+cientifico+computacion+otros,2);
+		totaltotal = totaltotal + parseFloat(htotal.value);
+	}
+	divTotalservicios.innerHTML=totalservicios;
+	divTotalconsumo.innerHTML=totalconsumo;
+	divTotalbibliografia.innerHTML=totalbibliografia;
+	divTotaltotal.innerHTML=totaltotal;
+	
+}
+
+window.onload = function() {
+			
+			totales();
+			
+			var sBasePath = '../js/fckeditor/';
+			
+
+	
+	CKEDITOR.replace('ds_fondotramite',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});
+	CKEDITOR.replace('ds_factibilidad',{toolbar:'Basic_img',width:'780',height:'100',filebrowserBrowseUrl : '../js/ckeditor/filemanager/browser/default/browser.html?Connector={WEB_PATH}/js/ckeditor/filemanager/connectors/php/connector.php?Type=Image',filebrowserWindowWidth : '640',filebrowserWindowHeight : '500'});
+	
+	
+	
+		}
+
+
+function validarArea(){
+	form = document.getElementById('altaproyecto5');
+	
+	
+	if(CKEDITOR.instances["ds_fondotramite"]){
+		form.fondotramiteTXT.value = CKEDITOR.instances["ds_fondotramite"].getData();
+	
+	}
+	if(CKEDITOR.instances["ds_factibilidad"]){
+		form.factibilidadTXT.value = CKEDITOR.instances["ds_factibilidad"].getData();
+	}
+	
+	
+	
+	if($("#factibilidadTXT").val()==''){
+		$( "#divFactibilidad" ).html('Campo requerido');
+		$.scrollTo("#divFactibilidad",800);
+		return false
+	}
+	else{
+		$( "#divFactibilidad" ).html('');
+		
+	}
+	/*var ded = document.getElementById('cd_deddoc');
+	var divcv = document.getElementById('cv');
+	var ds_curriculum = document.getElementById('ds_curriculum');
+	var ds_curriculumH = document.getElementById('ds_curriculumH');
+	var ds_curriculumT = document.getElementById('ds_curriculumT');
+	var div = document.getElementById('ded');
+	var hs = document.getElementById('nu_horasinv');
+	switch (ded.value) {
+		case '1': if(hs.value > 35){ div.innerHTML = 'M�ximo 35 hs.'; hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B"; return false;}
+				  else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}
+					break;
+		case '2': if(hs.value > 15){ div.innerHTML = 'M�ximo 15 hs.'; hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B"; return false;}
+					else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}
+				break;
+		case '3': if(hs.value > 4){ div.innerHTML = 'M�ximo 4 hs.'; hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B"; return false;}
+					else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}	
+				break;
+		case '5': if(hs.value > 35) {div.innerHTML = 'M�ximo 35 hs.'; hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B"; return false;}
+					else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}
+					break;
+		case '6': if(hs.value > 35){ div.innerHTML = 'M�ximo 35 hs.'; hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B"; return false;}
+					else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}
+					break;
+		default: if(hs.value > 0){ div.innerHTML = 'No puede aportar horas'; 
+									hs.style.background = '#FFF4F4'; hs.style.borderColor =  "#8E3B1B";
+								return false;}
+					else {div.innerHTML = '';	
+						hs.style.background = '#FFFFFF';
+						hs.style.borderColor =  "#FFFFFF";
+						}
+					break;
+	}
+	
+	if((ds_curriculum.value=='')&&(ds_curriculumH.value=='')&&(ds_curriculumT.value=='')){
+		divcv.innerHTML = 'Este Campo es requerido.';
+		ds_curriculum.style.background = '#FFF4F4';
+		ds_curriculum.style.borderColor =  "#8E3B1B";
+		return false
+		}
+	else{
+		if (ds_curriculum.value!=''){
+			var cv = ds_curriculum.value.toUpperCase();
+			if (cv.indexOf('PDF', 0) == -1 && cv.indexOf('DOC', 0) == -1 && cv.indexOf('DOCX', 0) == -1 && cv.indexOf('RTF', 0) == -1){
+				divcv.innerHTML = 'Formato de archivo no v�lido.';
+				ds_curriculum.style.background = '#FFF4F4';
+				ds_curriculum.style.borderColor =  "#8E3B1B";
+				return false
+			}
+			else{
+				divcv.innerHTML = '';
+				ds_curriculum.style.background = '#FFFFFF';
+				ds_curriculum.style.borderColor = '#FFFFFF';
+				}
+		}
+		else{
+			divcv.innerHTML = '';
+			ds_curriculum.style.background = '#FFFFFF';
+			ds_curriculum.style.borderColor = '#FFFFFF';
+			}
+		}*/
+	
+	var nu_duracion = document.getElementById('nu_duracion');
+	var cant = (nu_duracion.value==4)?5:3;
+	for (var i=1; i<cant; i++){
+		
+		var htotal = document.getElementById('htotal'+i);
+		
+		var divtotal = document.getElementById('divTotal'+i);
+		var nu_ano = document.getElementById('nu_ano'+i);
+		if(nu_ano.value != htotal.value){
+			divtotal.innerHTML = "El monto a declarar es de "+formatDec(nu_ano.value);
+			$.scrollTo("#divtotal",800);
+			return false
+		}
+		else{
+			divtotal.innerHTML = '';
+			
+			}
+		
+		
+	}
+	var arrayIncisos = ["nu_consumo","nu_servicios","nu_bibliografia"];
+	for (var i=1; i<cant; i++){
+		for (var j=1; j<4; j++){
+		
+			if($("#"+arrayIncisos[j-1]+i).val() != $("#hTotal"+i+j).val()){
+				$( "#divTotal"+i+j ).html("El monto a declarar es de "+formatDec($("#"+arrayIncisos[j-1]+i).val()));
+				
+				
+				$.scrollTo("#divTotal"+i+j,800);
+			
+				return false
+			}
+			else{
+				$( "#divTotal"+i+j ).html("");
+				
+			}
+		}
+		
+	}
+	
+	{divsRequeridos}
+	
+	return true;
+	
+	
+	
+}	
+
+
+function agregarFila(tramite, i){
+	var s=parseInt(i)+1;
+	var t=(tramite==1)?'T':'';
+	var nu_monto = document.getElementById('nu_monto'+t+i);
+	var nu_montoS = document.getElementById('nu_monto'+t+s);
+	var ds_fuente = document.getElementById('ds_fuente'+t+i);
+	var ds_resolucion = document.getElementById('ds_resolucion'+t+i);
+	var colCant=(tramite==0)?3:2;
+	
+	if((nu_montoS==null)&&((nu_monto.value!='')||(ds_fuente.value!='')||((ds_resolucion!=null)&&(ds_resolucion.value!='')))){
+	
+		
+		var tabla=(tramite==0)?document.getElementById("fondos"):document.getElementById("fondostramite");
+		
+		var tr=document.createElement("tr");
+		var td=document.createElement("td");
+		td.setAttribute("align","left");		
+		var textbox=document.createElement("input");
+		textbox.setAttribute("type","text");
+		textbox.setAttribute("name","nu_monto"+t+s);
+		textbox.setAttribute("id","nu_monto"+t+s);
+		textbox.setAttribute("size","10");
+		textbox.setAttribute("jVal", "{valid:function (val) { return isReal(val,' Ingrese un número'); }}");
+		td.appendChild(textbox);
+		tr.appendChild(td);
+		var td=document.createElement("td");
+		td.setAttribute("align","left");		
+		var textbox=document.createElement("input");
+		textbox.setAttribute("type","text");
+		textbox.setAttribute("name","ds_fuente"+t+s);
+		textbox.setAttribute("id","ds_fuente"+t+s);
+		
+		//textbox.setAttribute("onchange","mayusculas(this)");
+		eval('textbox.onchange= function(){mayusculas(this) }')
+		if(colCant==2){
+			//textbox.setAttribute("onBlur","agregarFila('"+tramite+"','"+s+"')");
+			eval('textbox.onblur= function(){agregarFila("'+tramite+'","'+s+'") }')
+		}
+		
+		td.appendChild(textbox);
+		tr.appendChild(td);
+		if(colCant==3){
+			var td=document.createElement("td");
+			td.setAttribute("align","left");		
+			var textbox=document.createElement("input");
+			textbox.setAttribute("type","text");
+			textbox.setAttribute("name","ds_resolucion"+t+s);
+			textbox.setAttribute("id","ds_resolucion"+t+s);
+			//textbox.setAttribute("onchange","mayusculas(this)");
+			eval('textbox.onchange= function(){mayusculas(this) }')
+			//textbox.setAttribute("onBlur","agregarFila('"+tramite+"','"+s+"')");
+			eval('textbox.onblur= function(){agregarFila("'+tramite+'","'+s+'") }')
+			td.appendChild(textbox);
+			tr.appendChild(td);
+		}
+		tabla.appendChild(tr);
+		nu_montoS = document.getElementById('nu_monto'+t+s);
+		/*nu_montoS.className="fValidate['real']";
+		exValidatorA.initialize("altaproyecto5", exValidatorA.options);*/
+		nu_montoS.focus();
+		
+		
+		
+	}
+	
+		
+	}
+
+function doGrid(year, tipo){
+	
+	
+	
+	
+	$.ajax({
+		 
+		  url: 'grillaFinanciamientoitem.php?year='+year+'&tipo='+tipo,
+		  
+		  success: function(content){
+				$( "#divGrid"+year+tipo ).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGrid"+year+tipo ).html("");
+				
+			  }
+		});
+
+}
+
+function doGridFondo(){
+	
+	
+	
+	
+	$.ajax({
+		 
+		  url: 'grillaFondo.php',
+		  
+		  success: function(content){
+				$( "#divGridFondo" ).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGridFondo" ).html("");
+				
+			  }
+		});
+
+}
+
+function doGridFinanciamientoanterior(){
+	
+	
+	
+	
+	$.ajax({
+		 
+		  url: 'grillaFinanciamientoanterior.php',
+		  
+		  success: function(content){
+				$( "#divFinanciamientoanterior" ).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divFinanciamientoanterior" ).html("");
+				
+			  }
+		});
+
+}
+$(function() {
+	doGridFondo();
+	doGridFinanciamientoanterior();
+	{doGrillas}
+});
+//Get the id number from row
+function insertar(year,tipo) {
+$.ajax({
+	 
+	  url: 'grillaFinanciamientoitem.php?insertar=1&year='+year+'&tipo='+tipo,
+	  
+	  success: function(content){
+		  $( "#divGrid"+year+tipo).html(content);
+			
+	  },
+	  error: function(content){
+		  $( "#divGrid"+year+tipo).html("");
+			
+		  }
+	});
+}
+//Get the id number from row
+function eliminar(id, year, tipo) {
+	var preg=confirm("esta seguro/a?");
+	if (preg==true){
+		$.ajax({
+		 
+		  url: 'grillaFinanciamientoitem.php?eliminar='+id+'&year='+year+'&tipo='+tipo,
+		  
+		  success: function(content){
+				$( "#divGrid"+year+tipo).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGrid"+year+tipo).html("");
+				
+			  }
+		});
+	}
+}
+function insertarF() {
+	$.ajax({
+		 
+		  url: 'grillaFondo.php?insertar=1',
+		  
+		  success: function(content){
+				$( "#divGridFondo" ).html(content);
+				
+		  },
+		  error: function(content){
+				$( "#divGridFondo" ).html("");
+				
+			  }
+		});
+	}
+	//Get the id number from row
+	function eliminarF(id) {
+		var preg=confirm("esta seguro/a?");
+		if (preg==true){
+			$.ajax({
+			 
+			  url: 'grillaFondo.php?eliminar='+id,
+			  
+			  success: function(content){
+					$( "#divGridFondo").html(content);
+					
+			  },
+			  error: function(content){
+					$( "#divGridFondo").html("");
+					
+				  }
+			});
+		}
+	}
+</script>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+			<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3>Mensajes del sistema</h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				<form name='altaproyecto5' id='altaproyecto5' action='altaproyecto5-action.php' class="niceform form_solicitudes" method='post' enctype="multipart/form-data" onsubmit="return validate('altaproyecto5');">
+				 <input type="hidden" name="nu_duracion" id="nu_duracion" value="{nu_duracion}" />
+					
+					<!-- <p><strong>C.V. Director(*):</strong> 
+				       <input type='file' name='ds_curriculum' id='ds_curriculum' size='32' value="{ds_curriculum}"/>
+					   <input type="hidden" name="ds_curriculumH" id="ds_curriculumH" value="{ds_curriculumH}" />
+					   <input type="hidden" name="ds_curriculumT" id="ds_curriculumT" value="{ds_curriculumT}" />
+					<div id='cv'>{cvcargado}</div></p>
+					
+					 <div id="unidad0">
+					<p><strong>Lugar de trabajo del Director(*):</strong> 
+					  <input type='text' id='nu_nivelunidad' name='nu_nivelunidad' value='{nu_nivelunidad}' style='font-size: 10px; width: 20px;display:none' />
+                                                <input type='text' name='ds_unidad' id='ds_unidad' value='{ds_unidad}' style='width:500px' onchange='mayusculas(this)' class="fValidate['required']"/>
+                                                <input type='text' id='cd_unidad' name='cd_unidad' value='{cd_unidad}' style='font-size: 10px; width: 20px;display:none' class="fValidate['required1']"/>
+				  </p></div>
+				  
+				 <p><strong>Horas por semanas dedicadas al proyecto(*):</strong>
+	              <input type='text' name='nu_horasinv' id='nu_horasinv' size='10' maxlength="50" class="fValidate['integer','required']" value="{nu_horasinv}"/><div id="ded"></div><input type="hidden" name="cd_deddoc" id="cd_deddoc" value="{cd_deddoc}" /></p>-->
+					  
+					  <p><strong>PRESUPUESTO DEL PROYECTO</strong></p> 
+						<p><strong>Costo m&iacute;nimo global necesario para llevar a cabo el proyecto (*):</strong><br />  {ds_costo}</p> 
+						  
+						  <p>
+					
+					
+					
+  
+ 
+				          
+                    <strong>Fondos/Recursos disponibles:</strong> 
+                  
+						
+							 {grillaFondo}
+							
+						
+
+
+
+			      </p>
+						<p><strong>Fondos/Recursos en tr&aacute;mite:</strong><br />
+
+					  <textarea name="ds_fondotramite" id="ds_fondotramite" cols="60" rows="4">{ds_fondotramite}</textarea>
+	              <input type="hidden" name="fondotramiteTXT" id="fondotramiteTXT" /></p>  
+	              <p>
+					
+					
+					
+			      <caption align="top"><strong>Financiamiento recibido en a&ntildeos anteriores para el tema propuesto (*):</strong><span class="Estilo1">Indicar monto recibido en pesos y fuente de financiaci&oacute;n</span></caption> 
+					  <div id="grid" style="position: relative;">
+				          
+							<div id="divFinanciamientoanterior"></div>
+							<div id="divFinanciamientoanteriorRequerido" class="fValidator-msg"></div>
+						</div>
+						 <!-- <p>
+					     <table width="500" border="1" align="center" cellspacing="0">
+						 <caption align="top">
+                     <strong>Fondos/Recursos en tr&aacute;mite:</strong> 
+                    </caption>
+  <tr>
+    <th scope="col"><div align="center">Monto</div></th>
+    <th scope="col"><div align="center">Fuente</div></th>
+  </tr>
+  <tbody id="fondostramite">
+ {fondostramite}
+ </tbody></table>-->
+						  <br><p><strong>Explicitar la factibilidad del plan de trabajo propuesto con los recursos disponibles, en caso de no recibir financiamiento  (*):</strong>
+								  <textarea name="ds_factibilidad" id="ds_factibilidad" cols="60" rows="4">{ds_factibilidad}</textarea>
+	              <input type="hidden" name="factibilidadTXT" id="factibilidadTXT" class="fValidate['required']"/></p>
+	              <div id="divFactibilidad" class="fValidator-msg"></div>	 
+					
+
+
+			      <p>
+			       <table width="500" border="1" align="center" cellspacing="0">
+                    <caption align="top">
+                      <strong>Presupuesto estimado preliminar - UNLP</strong> <span class="Estilo1">Indicar el monto anual en pesos. Los fondos que puedan asignarse al presente proyecto ser&aacute;n exclusivamente utilizados para su realizaci&oacute;n de acuerdo con los objetivos y el plan que constan en la presente solicitud.</span>
+                      <div class="Estilo2">Una vez otorgado el subsidio se deber&aacute; respetar el porcentaje de los incisos solicitados. Podr&aacute;n transferirse entre incisos hasta un 15%<br>El concepto vi&aacute;ticos y pasajes no podr&aacute; superar el 30% del monto total otorgado al proyecto.</div>
+                    </caption>
+			       {ds_presupuesto}
+                  </table>
+			     </p> 
+			     
+			     
+			     <div id="grid" style="position: relative;">
+				          <strong>Detalle de gastos previstos </strong> <div class="Estilo2">Detallar los conceptos y montos en pesos discriminado por a&ntilde;o de acuerdo a los incisos 2, 3 y 4 especificados en el presupuesto preliminar.</div>
+				          <br>
+							{grillasFinanciamientoitem}
+							
+						</div>
+			     
+			     
+			     
+			     
+			     
+				  <p><strong>Autorizo a la U.N.L.P. a trav&eacute;s de Secretar&iacute;a de Ciencia y T&eacute;cnica a difundir los datos relativos al presente proyecto (*):</strong> 
+					 SI
+					   <input name="bl_publicar" type="radio" value="1" onclick="copiarRadio('publicarTXT')" {chequeado1}/>
+					  NO
+                      <input name="bl_publicar" type="radio" value="0" onclick="copiarRadio('publicarTXT')" {chequeado0}/>
+<input type="hidden" name="publicarTXT" id="publicarTXT" class="fValidate['required']" value="{publicarTXT}"/></p>
+				<p><strong>Acepto recibir toda notificaci&oacuten relativa al presente proyecto a la direcci&oacuten de correo electr&oacute;nico {ds_mail} (*):</strong> 
+					 SI
+					   <input name="bl_notificacion" type="radio" value="1" onclick="copiarRadio('notificacionTXT')" {chequeado1}/>
+					  NO
+                      <input name="bl_notificacion" type="radio" value="0" onclick="copiarRadio('notificacionTXT')" {chequeado0}/>
+<input type="hidden" name="notificacionTXT" id="notificacionTXT" class="fValidate['required']" value="{notificacionTXT}"/></p>	
+					<p style="text-align:center">
+					<input type='submit' name='anterior' value='Anterior' onclick="volver(this.form, 'altaproyecto4.php')" class="buttonSubmit"/>
+					<input type='reset' name='cancelar' value='Cancelar' onclick="consultarSalida();" class="buttonSubmit"/>
+
+					<input type='submit' name='siguiente' value='Siguiente' onclick="return validarArea();" class="buttonSubmit"/>
+					</p>
+					(*) Campos requeridos	
+				    <br />
+				    <span style="color:#A43B3B">IMPORTANTE: no use separador de miles (.) en los montos y no se pueden usar llamadas o referencias al Pie de P&aacute;gina </span>
+				</form>		
+				
+			</div>
+			
+</body>
+</html>
+<!-- END: main -->

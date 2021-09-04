@@ -1,0 +1,607 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+<link rel="stylesheet" href="../css/calendar.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/mootools.js"></script>
+<script type="text/javascript" src="../js/calendar.js"></script>
+<script type="text/javascript" src="../js/moocheck.js"></script>
+<script type="text/javascript" src="../js/fValidator.js"></script>
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript">
+function copiarRadio(radio){
+	var radioTXT = document.getElementById(radio);
+	radioTXT.value = 1;
+	
+}	
+function habilitar(f){
+	for (var iterador = 0; iterador < f.elements.length; iterador++) {
+		elem = f.elements[iterador];
+		elem.removeAttribute('disabled');
+	}
+}
+window.addEvent("domready", function() {
+	var exValidatorA = new fValidator("bajaintegrante");
+});
+
+window.addEvent('domready', function() {
+      myCal = new Calendar({ dt_baja: 'd/m/Y' });
+});
+
+window.addEvent('domready', function() {
+      myCal = new Calendar({ dt_interesado: 'd/m/Y' });
+});
+
+window.addEvent('domready', function() {
+      myCal = new Calendar({ dt_director: 'd/m/Y' });
+});
+</script>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"Arial Black";
+	panose-1:2 11 10 4 2 1 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:ES-TRAD;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 220.95pt right 441.9pt;
+	text-autospace:none;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:ES-TRAD;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 220.95pt right 441.9pt;
+	text-autospace:none;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:ES-TRAD;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:125%;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:ES-TRAD;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:14.15pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:ES-TRAD;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:ES-TRAD;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:21.0cm 842.0pt;
+	margin:53.85pt 1.0cm 1.0cm 3.0cm;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:644041979;
+	mso-list-type:simple;
+	mso-list-template-ids:490382384;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:1034188806;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1715475172 598375636 738852867 738852869 738852865 738852867 738852869 738852865 738852867 738852869;}
+@list l1:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+@list l2
+	{mso-list-id:1135024356;
+	mso-list-type:hybrid;
+	mso-list-template-ids:351690300 76960308 201981955 201981957 201981953 201981955 201981957 201981953 201981955 201981957;}
+@list l2:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:1257595899;
+	mso-list-type:simple;
+	mso-list-template-ids:-732145702;}
+@list l3:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:1374502155;
+	mso-list-type:simple;
+	mso-list-template-ids:375530498;}
+@list l4:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	mso-ansi-font-weight:normal;}
+@list l5
+	{mso-list-id:1729186276;
+	mso-list-type:simple;
+	mso-list-template-ids:-286252118;}
+@list l5:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+<body lang=ES style='tab-interval:36.0pt;text-justify-trim:punctuation' {msj}>
+
+<div class=Section1>
+<form name='bajaintegrante' id='bajaintegrante' class="fValidator-form" action='bajaintegrante-action.php' method='post'>
+		<input type="hidden" name="cd_docente" id="cd_docente" value="{cd_docente}"/>
+		<input type="hidden" name="cd_proyecto" id="cd_proyecto" value="{cd_proyecto}"/>
+<p class=MsoNormal style='text-align:justify;line-height:125%'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1029" type="#_x0000_t202" style='position:absolute;
+ left:0;text-align:left;margin-left:-4.35pt;margin-top:-41.55pt;width:474pt;
+ height:24pt;z-index:1' fillcolor="black"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:1'><span
+  style='position:absolute; mso-ignore:vglayout; left:-8pt; z-index:1; height: 37px; width: 767px; top: 0px;'>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div v:shape="_x0000_s1029" style='padding:4.35pt 7.95pt 4.35pt 7.95pt'
+    class=shape>
+      <p class=MsoNormal align=left style='text-align:right;background:black'><b
+    style='mso-bidi-font-weight:normal'><span lang=ES-TRAD style='font-size:
+    14.0pt;font-family:"Arial Black";color:white'>BAJA DE INTEGRANTES – B</span></b><b
+    style='mso-bidi-font-weight:normal'>
+     
+    </b></p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+</span></span>
+<p>
+  <![endif]>
+  <b><span lang=ES-TRAD style='mso-bidi-font-size:10.0pt;
+line-height:125%;font-family:Arial;color:windowtext'>
+  <!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1032" type="#_x0000_t75" style='width:450pt;
+ height:39.75pt' o:ole="" fillcolor="window">
+ <v:imagedata src="../img/image001.png" o:title=""/>
+</v:shape><![endif]-->
+ </strong> <![if !vml]><![endif]>
+  <!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1032"
+  DrawAspect="Content" ObjectID="_1314702251">
+ </o:OLEObject>
+</xml><![endif]-->
+  </span></b><span lang=ES-TRAD style='font-size:4.0pt;
+line-height:125%;font-family:Arial;color:windowtext'>
+  <o:p></o:p>
+  </span>
+  </p>
+</p>
+<div id="overlay" style="visibility:hidden"></div>
+<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+<b><span><img width=800 height=70
+src="../img/secretaria.gif" v:shapes="_x0000_i1032" /></span></b> <br />
+<br />
+<p class=MsoBodyText style='text-align:justify;line-height:normal'><span
+lang=ES-TRAD style='font-family:Arial'>BAJA DE INTEGRANTES PROYECTOS INVESTIGACION</span></p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+
+<p class=MsoNormal style='line-height:125%'><b><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'>UNIDAD
+ACADEMICA: </span></b>
+  <select name="cd_facultad" id="cd_facultad" {disabled} class="fValidate['required']">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:facultad -->
+								<option value={DATA.cd_facultad}>{DATA.ds_facultad}</option>
+							<!-- END:facultad -->
+    </select></p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>IDENTIFICACION DEL PROYECTO: </span></b></p>
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>CODIGO: </span></b><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'> {ds_codigo}</span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>DENOMINACIÓN DEL PROYECTO: </span></b><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'> {ds_titulo}</span></p>
+
+
+
+
+<p class=MsoNormal style='line-height:125%'><b><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'>DURACION
+DEL PROYECTO: </span></b><span lang=ES-TRAD style='font-size:11.0pt;line-height:
+125%;font-family:Arial;color:windowtext'><span
+style='mso-spacerun:yes'>    </span>BIANUAL<input name="nu_duracion" type="radio" value="2" onclick="copiarRadio('duracionTXT')" {chequeado2}/>
+</span><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'> TETRA ANUAL
+<input name="nu_duracion" type="radio" value="4" onclick="copiarRadio('duracionTXT')" {chequeado4}/>
+<input type="hidden" name="duracionTXT" id="duracionTXT" class="fValidate['required']" value={duracionTXT}/>
+</span>
+
+</p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span lang=ES-TRAD style='font-size:11.0pt;
+line-height:125%;font-family:Arial;color:windowtext'><b
+style='mso-bidi-font-weight:normal'>FECHA DE INICIO: </b>{dt_ini}<span
+style='mso-tab-count:4'>                                        </span><b
+style='mso-bidi-font-weight:normal'>FECHA DE
+FINALIZACION:</b> {dt_fin}</span> </p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>DIRECTOR</span></b></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>Apellido y Nombre:
+   {ds_director}</span></p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b
+style='mso-bidi-font-weight:normal'><u><span lang=ES-TRAD style='font-size:
+11.0pt;line-height:125%;font-family:Arial;color:windowtext'>BAJA</span></u></b></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>IDENTIFICACION DEL INTEGRANTE</span></b></p>
+
+<p class=MsoNormal style='line-height:125%'><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'>Apellido
+y Nombres: 
+    <label>
+    <input type="text" name="ds_apellido" id="ds_apellido" value="{ds_apellido}" class="fValidate['required']" {disabled1}/>
+    , 
+    <input type="text" name="ds_nombre" id="ds_nombre" value="{ds_nombre}" class="fValidate['required']" {disabled1}/>
+    </label>
+</span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;
+font-family:Arial;color:windowtext'>C.U.I.L.: <label>
+    <input type="text" name="nu_precuil" id="nu_precuil" value="{nu_precuil}" size="2" maxlength="2" class="fValidate['integer']" {disabled1}/> -
+	<input type="text" name="nu_documento" id="nu_documento" value="{nu_documento}" size="10" maxlength="9" class="fValidate['integer']" {disabled1}/> - <input type="text" name="nu_postcuil" id="nu_postcuil" value="{nu_postcuil}" size="1" maxlength="1" class="fValidate['integer']" {disabled1}/>
+    </label></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>Categoría de Docente Investigador: <select name="cd_categoria" id="cd_categoria" {disabled}  class="fValidate['required']">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:categoria -->
+								<option value={DATA.cd_categoria}>{DATA.ds_categoria}</option>
+							<!-- END:categoria -->
+    </select></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>Cargo docente: <select name="cd_cargo" id="cd_cargo" class="fValidate['required']">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:cargo -->
+								<option value={DATA.cd_cargo}>{DATA.ds_cargo}</option>
+							<!-- END:cargo -->
+    </select><span style='mso-tab-count:4'>                                               </span>Dedicación: <select name="cd_deddoc" id="cd_deddoc" class="fValidate['required']">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:deddoc -->
+								<option value={DATA.cd_deddoc}>{DATA.ds_deddoc}</option>
+							<!-- END:deddoc -->
+    </select></span></p>
+
+<p class=MsoNormal style='line-height:125%'><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'>Unidad
+Académica: <select name="cd_facultadDoc" id="cd_facultadDoc" class="fValidate['required']" style="width: 300px">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:facultadDoc -->
+								<option value={DATA.cd_facultad}>{DATA.ds_facultad}</option>
+							<!-- END:facultadDoc -->
+    </select> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Universidad: 
+<select name="cd_universidad" id="cd_universidad" class="fValidate['required']" style="width: 300px">
+							<option value="">- Seleccione Uno -</option>
+							<!-- BEGIN:universidad -->
+								<option value={DATA.cd_universidad}>{DATA.ds_universidad}</option>
+							<!-- END:universidad -->
+    </select></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>Horas dedicadas al proyecto: <input type="text" name="nu_horasinv" id="nu_horasinv" value="{nu_horasinv}" size="10" maxlength="6" class="fValidate['required']"/></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span lang=ES-TRAD style='font-size:11.0pt;
+line-height:125%;font-family:Arial;color:windowtext'><b
+style='mso-bidi-font-weight:normal'>FECHA DE BAJA: </b><input type='text' name='dt_baja' id='dt_baja' size='10' class="fValidate['required','date']" value="{dt_baja}"/></span></p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+<p class=MsoNormal style='line-height:125%'><b><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'>CONSENTIMIENTO
+DEL INTERESADO: </span></b></p>
+
+<p class=MsoNormal style='line-height:125%'><i style='mso-bidi-font-style:normal'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>Dejo constancia que otorgo mi conformidad a la presente baja.</span></i></p>
+
+<p class=MsoNormal style='line-height:125%'><span lang=ES-TRAD
+style='font-size:11.0pt;line-height:125%;font-family:Arial;color:windowtext'><span
+style='mso-tab-count:6'>                                                                                            </span></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>FECHA: <input type='text' name='dt_interesado' id='dt_interesado' size='10' class="fValidate['required','date']" />
+<span style='mso-tab-count:3'> </span><span style='mso-spacerun:yes'>                                                                   </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            Firma y Aclaración
+</span></p>
+
+
+
+<hr size=2 width="100%" noshade color=black align=center>
+
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><b
+style='mso-bidi-font-weight:normal'><span lang=ES-TRAD style='font-size:11.0pt;
+line-height:125%;font-family:Arial;color:windowtext'>En caso de otorgarse la
+baja solicitada:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext;mso-bidi-font-weight:bold'>a-Explicar las consecuencias
+de la baja en el desenvolvimiento del proyecto.</span></p>
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;line-height:
+125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:
+Arial'><textarea name="ds_consecuencia" cols="60" rows="10" class="fValidate['required']"></textarea></span></p>
+
+
+
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>b- Se cumple con el requisito de un mínimo de tres (3) integrantes considerando la baja:</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;line-height:
+125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:
+Arial'>SI <input name="radiointegrantes" type="radio" value="SI" onclick="copiarRadio('integrantesTXT')"/><span
+style='mso-tab-count:2'>                      </span>NO <input name="radiointegrantes" type="radio" value="NO" onclick="copiarRadio('integrantesTXT')"/>
+<input type="hidden" name="integrantesTXT" id="integrantesTXT" class="fValidate['required']"/></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>c- Se cumple con el requisito de que la suma de dedicaciones
+horarias de los miembros al proyecto no sea inferior a 30 horas. </span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;line-height:
+125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:
+Arial'>SI <input name="radiodedicacion" type="radio" value="SI" onclick="copiarRadio('dedicacionTXT')"/><span
+style='mso-tab-count:2'>                      </span>NO <input name="radiodedicacion" type="radio" value="NO" onclick="copiarRadio('dedicacionTXT')"/>
+<input type="hidden" name="dedicacionTXT" id="dedicacionTXT" class="fValidate['required']"/></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>d- Se cumple con las pautas fijadas en la Acreditación.</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-align:justify;line-height:
+125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:
+Arial'>SI <input name="radiopautas" type="radio" value="SI" onclick="copiarRadio('pautasTXT')"/><span
+style='mso-tab-count:2'>                      </span>NO <input name="radiopautas" type="radio" value="NO" onclick="copiarRadio('pautasTXT')"/>
+<input type="hidden" name="pautasTXT" id="pautasTXT" class="fValidate['required']"/></span></p>
+
+<p class=MsoNormal style='margin-left:252.0pt;text-indent:36.0pt;line-height:
+125%'><span lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:
+Arial;color:windowtext'>
+  <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%'><span
+lang=ES-TRAD style='font-size:11.0pt;line-height:125%;font-family:Arial;
+color:windowtext'>FECHA: <input type='text' name='dt_director' id='dt_director' size='10' class="fValidate['required','date']" />
+<span style='mso-tab-count:3'> </span><span style='mso-spacerun:yes'>                                                                   </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            Firma del Director
+del Proyecto
+</span></p>
+
+<div style='mso-element:para-border-div;border:none;border-top:solid windowtext 1.5pt;
+padding:0cm 0cm 0cm 0cm'>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%;border:none;
+mso-border-top-alt:solid windowtext 1.5pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><span
+lang=ES-TRAD style='mso-bidi-font-size:10.0pt;line-height:125%;font-family:
+Arial;color:windowtext;mso-bidi-font-weight:bold'>No debe quedar ningún ítem
+sin completar.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%;border:none;
+mso-border-top-alt:solid windowtext 1.5pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><span
+lang=ES-TRAD style='mso-bidi-font-size:10.0pt;line-height:125%;font-family:
+Arial;color:windowtext'>La información detallada en esta solicitud<span
+style='mso-spacerun:yes'>  </span>tiene carácter de <b>DELARACION JURADA. 
+  <o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:125%;border:none;
+mso-border-top-alt:solid windowtext 1.5pt;padding:0cm;mso-padding-alt:0cm 0cm 0cm 0cm'><b><span
+lang=ES-TRAD style='mso-bidi-font-size:10.0pt;line-height:125%;font-family:
+Arial;color:windowtext'></span></b></p>
+
+</div>
+<div align="center"><input type='submit' name='submit' value='Aceptar' onClick="habilitar(this.form)"/> &nbsp;&nbsp;&nbsp;
+  <input type='button' name='volver' value='Volver' onclick="javascript:history.back(-1);"/></div>
+</form>
+</div>
+
+</body>
+
+
+</html>
+<!-- END: main -->

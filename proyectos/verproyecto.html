@@ -1,0 +1,86 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+ <link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="../js/suggest_beta/js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="../js/suggest_beta/css/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body class="bodyPlantilla">
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			
+			<div class="divverusuario">
+ 				
+ 				<table class="tablaListado" border="1">
+					<tr>
+						<th>C&oacute;digo</th>
+		<th>T&iacute;tulo</th>
+		<th>Director</th>
+		<th>Inicio</th>
+		<th>Fin</th>
+		<th>Unidad Acad&eacute;mica</th>
+					</tr>
+					<tr>
+						<td>{ds_codigo}</td>
+		<td>{ds_titulo}</td>
+		<td>{ds_director}</td>
+		<td>{dt_ini}</td>
+		<td>{dt_fin}</td>
+		<td>{ds_facultad}</td>
+					</tr>
+					
+				</table>
+				<div align="justify">
+ 				  <div class="titulo">Integrantes </div>
+				  <div class="Opciones">{nuevoIntegrante}</div>
+ 				</div>
+				<table class="tablaListado" border="1">
+	<tr>
+		<th><a
+			href="verproyecto.php{query_string}campo=nu_cuil&orden={orden}" class="unnamed1">CUIL&nbsp;{imgCUIL}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=ds_investigador&orden={orden}" class="unnamed1">Investigador&nbsp;{imgINV}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=ds_tipoinvestigador&orden={orden}" class="unnamed1">Tipo &nbsp;{imgDINV}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=ds_categoria&orden={orden}" class="unnamed1">Categor&iacute;a&nbsp;{imgCAT}</a></th>
+		
+		<th><a
+			href="verproyecto.php{query_string}campo=ds_deddoc&orden={orden}" class="unnamed1">Ded Doc &nbsp;{imgDDOC}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=dt_alta&orden={orden}" class="unnamed1">Alta&nbsp;{imgALTA}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=dt_baja&orden={orden}" class="unnamed1">Baja &nbsp;{imgBAJA}</a></th>
+		<th><a
+			href="verproyecto.php{query_string}campo=ds_facultad&orden={orden}" class="unnamed1">Facultad&nbsp;{imgFAC}</a></th>
+		<th>Acciones</th>
+	</tr>
+	<!-- BEGIN: row -->
+	<tr>
+		<td>{DATOS.nu_cuil}</td>
+		<td>{DATOS.ds_investigador}</td>
+		<td>{DATOS.ds_tipoinvestigador}</td>
+		<td>{DATOS.ds_categoria}</td>
+		<td>{DATOS.ds_deddoc}</td>
+		<td>{DATOS.dt_alta}</td>
+		<td>{DATOS.dt_baja}</td>
+		<td>{DATOS.ds_facultad}</td>
+		<td>{DATOS.linkeditar}&nbsp;{DATOS.linkebajar}&nbsp;{DATOS.linkconfirmar}&nbsp;{DATOS.linkrechazar}&nbsp;{DATOS.adjuntos} </td>
+	</tr>
+	<!-- END: row -->
+</table>
+				<p><input type='button' name='volver' value='Volver' onclick="javascript:location.href='index.php';" class="buttonSubmit"/></p>
+					
+						
+			</div>
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,63 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../js/LightForm/css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/estilosValidador.css" type="text/css" />
+<script type="text/javascript" src="../js/funciones.js"></script>
+<script type="text/javascript" src="../js/prototype.js"></script>
+<script type="text/javascript" src="../js/effects.js"></script>
+<script type="text/javascript" src="../js/validation.js"></script>
+</head>
+<body class="">
+			
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo_modificar_usuario">{titulo}</p></div>
+ 				<form name='registro' id='registro' action='verregistro-action.php' class="fValidator-form niceForm" method='post'">
+				<input type="hidden" name="ds_apynom" id="ds_apynom" value="{ds_apynom}"/>
+				<input type="hidden" name="ds_mail" id="ds_mail" value="{ds_mail}"/>
+				<input type="hidden" name="nu_precuil" id="nu_precuil" value="{nu_precuil}"/>
+				<input type="hidden" name="nu_postcuil" id="nu_postcuil" value="{nu_postcuil}"/>
+				<input type="hidden" name="nu_documento" id="nu_documento" value="{nu_documento}"/>
+				<input type="hidden" name="cd_facultad" id="cd_facultad" value="{cd_facultad}"/>
+				<input type="hidden" name="ds_password" id="ds_password" value="{ds_password}"/>
+				<input type="hidden" name="ds_categoria" id="ds_categoria" value="{ds_categoria}"/>
+				<table class="tablaVer" style="line-height:15px;">
+					<tr>
+						<td><p><label>Apellido y Nombre :</label></p></td>
+						<td><p>{ds_apynom}</p></td>
+					</tr>
+					<tr>
+						<td><p><label>C.U.I.L. :</label></p></td>
+						<td><p>{nu_cuil}</p></td>
+					</tr>
+					<tr>
+						<td><p><label>E-Mail :</label></p></td>
+						<td><p>{ds_mail}</p></td>
+					</tr>
+					<tr>
+						<td><p><label> Unidad Acad&eacute;mica: </label></p></td>
+						<td><p>{ds_facultad} </p></td> 
+					</tr>
+					<!-- <tr>
+						<td><p><label> Categor&iacute;a : </label></p></td>
+						<td><p>{ds_categoria} </p></td> 
+					</tr> -->
+					
+				</table><div align="center"><p><label>{comentario}</label></p></div>
+                                <p><input type='submit' name='submit' class="buttonSubmit" value='Enviar'/>&nbsp;&nbsp;<input type='button' name='volver' class="buttonSubmit" value='Volver' onclick="javascript:history.back(-1);"/>
+				</p>	
+			  </form>	
+			</div>
+</body>
+</html>
+<!-- END: main -->

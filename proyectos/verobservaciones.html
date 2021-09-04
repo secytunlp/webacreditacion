@@ -1,0 +1,66 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo}</title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Co-Comp Ltd" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../css/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../css/screensmall.css" type="text/css" />
+
+<style type="text/css">
+<!--
+.Estilo2 {color: #0000FF}
+.Estilo3 {color: #FF0000}
+-->
+</style>
+</head>
+<body class="bodyPlantilla" {msj}>
+			<!-- BEGIN:menu -->
+				{menu}
+			<!-- END:menu -->
+			<div id="overlay" style="visibility:hidden"></div>
+<div id="lightbox" >
+   <div class="roundedcornr_top"><div></div></div>
+  <div class="roundedcornr_content">
+	  <h3><span>Mensajes del sistema</span></h3>
+    <p id="mensajeErrorText"><!-- BEGIN: msj -->
+					 {msj}
+				<!-- END: msj --></p>
+<div class="btn_cerrar">    <label class="boton"><input type="submit" value="Cerrar" onclick="mensajeError(null);void(0);" />
+</label> </div>
+  </div>
+	  <div class="roundedcornr_bottom"><div></div></div>
+</div>
+			<div class="divaltausuario">
+ 				<div align="justify"><p class="titulo">{titulo}</p></div>
+ 				
+				
+					<p>Proyecto : {ds_titulo}</p> 
+					<p>Director: {ds_director}</p> 
+					<!-- BEGIN: evaluacion -->
+					<hr style= 'color: #999999; text-decoration: none;'>
+					<p>Evaluaci&oacute;n {EVAL.nu_numero}:</p>
+					<p>Evaluador {EVAL.ds_evaluador}:</p>
+					{EVAL.ds_grupo1}: {EVAL.ds_letra1}<br>
+					{EVAL.ds_grupo2}: {EVAL.ds_letra2}<br>
+					{EVAL.ds_grupo3}: {EVAL.ds_letra3}<br>
+					{EVAL.ds_grupo4}: {EVAL.ds_letra4}<br>
+					Calificaci&oacute;n: {EVAL.ds_evaluacion}<br>
+					
+					
+					<p>Observaciones: </p>
+					
+					  <span class="Estilo2">{EVAL.ds_observaciones}					  </span>
+					  <p>Observaciones SeCyT: </p>
+					
+					  <span class="Estilo3">{EVAL.ds_observacionessecyt}					  </span>
+				    <!-- END: evaluacion -->
+					
+					
+					<p><input type='button' name='volver' value='Volver' onclick="javascript:location.href='index.php';" class="buttonSubmit"/></p>
+			</div>
+</body>
+</html>
+<!-- END: main -->
